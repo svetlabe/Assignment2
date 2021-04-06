@@ -2,8 +2,7 @@ package no.dnb.reskillassignment2.datalayer;
 
 
 
-import no.dnb.reskillassignment2.ConfigurationData;
-import no.dnb.reskillassignment2.ConfigurationData;
+import no.dnb.reskillassignment2.model.ConfigurationData;
 
 import java.util.Collection;
 

@@ -2,7 +2,7 @@ package no.dnb.reskillassignment2.datalayer;
 
 
 
-import no.dnb.reskillassignment2.Administrator;
+import no.dnb.reskillassignment2.model.Administrator;
 
 import java.util.Collection;
 

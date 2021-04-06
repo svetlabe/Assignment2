@@ -1,5 +1,6 @@
-package no.dnb.reskillassignment2;
+package no.dnb.reskillassignment2.controllers;
 
+import no.dnb.reskillassignment2.model.Administrator;
 import no.dnb.reskillassignment2.datalayer.AdministratorRepository;
 import no.dnb.reskillassignment2.datalayer.ConfigurationDataRepository;
 import no.dnb.reskillassignment2.datalayer.EnvironmentsRepository;

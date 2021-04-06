@@ -36,13 +36,15 @@ public class AdministratorRepoDB implements AdministratorRepository{
     }
 
     @Override
-    public void updateAdministrator(Administrator administrator) {
-        Administrator administrator = entityManager.find(Administrator.class, administrator.getUserId());
-        administrator.(administrator.());
-        administrator.setPrice(administrator.getPrice());
+    public void updateAdministrator(Administrator a) {
+        Administrator administrator = entityManager.find(Administrator.class, a.getUserId());
+        administrator.setUserId(a.getUserId());
+        administrator.setPassword(a.getPassword());
     }
 
     @Override
-    public void deleteAdministrator(long id) {
+    public void deleteAdministrator(String userId) {
+        Administrator a = entityManager.find(Administrator.class, userId);
+        entityManager.remove(a);
     }
 }

@@ -14,5 +14,5 @@ public interface AdministratorRepository {
     Administrator getAdministratorByUserName(String username);
     void insertAdministrator(Administrator administrator);
     void updateAdministrator(Administrator administrator);
-    void deleteAdministrator(long id);
+    void deleteAdministrator(String userId);
 }

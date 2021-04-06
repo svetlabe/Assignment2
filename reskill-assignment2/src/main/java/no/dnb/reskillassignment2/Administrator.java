@@ -1,9 +1,10 @@
 package no.dnb.reskillassignment2;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
 
 import javax.persistence.*;
-
+@Data
 @Entity
 @Table(name="ADMINISTRATORS")
 public class Administrator {

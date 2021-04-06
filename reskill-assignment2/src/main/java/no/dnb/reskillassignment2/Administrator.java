@@ -11,13 +11,19 @@ public class Administrator {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id = -1;
-
     private String userId;
     private String password;
 
+   //@JsonManagedReference TODO: Arild sjekker.
 
-    @JsonManagedReference
 
+    public Administrator(long id, String userId, String password) {
+        this.id = id;
+        this.userId = userId;
+        this.password = password;
+    }
 
+    public Administrator() {
+    }
 
 }

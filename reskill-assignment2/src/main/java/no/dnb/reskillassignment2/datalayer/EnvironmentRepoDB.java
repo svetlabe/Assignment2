@@ -42,8 +42,8 @@ public class EnvironmentRepoDB implements EnvironmentsRepository{
     public void updateEnvironment(Environment e) {
         Environment environment = entityManager.find(Environment.class, e.getId());
         environment.setId(e.getId());
-        environment.setName(e.getName());
-        environment.setDescription(e.getDescription());
+        environment.setShortName(e.getShortName());
+        environment.setLongName(e.getLongName());
 
     }
 

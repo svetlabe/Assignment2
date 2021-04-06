@@ -11,12 +11,17 @@ public class Environment {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id = -1;
+    @Column (name = "shortname")
     private String shortName;
+    @Column (name = "longname")
     private String longName;
 
-    @Id
-    public Long getId() {
-        return id;
+
+    public Environment() {
+    }
+
+    public Environment(String shortName, String longName) {
+        this(-1, shortName, longName);
     }
 
     public Environment(long id, String shortName, String longName) {

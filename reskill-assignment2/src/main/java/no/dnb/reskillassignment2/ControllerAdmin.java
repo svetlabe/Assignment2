@@ -27,57 +27,12 @@ import java.util.Collection;
     EnvironmentsRepository environmentsRepository;
 
 
-    //get one product
-    @GetMapping(value = "/XXXX/{id}", produces = {"application/json"})
-    public ResponseEntity<Product> getProductById(@PathVariable int id){
-        Product p =  service.findInStock(id);
-        if (p==null){
-            return ResponseEntity.notFound().build();
-        }
-        else{
-            return ResponseEntity.ok().body(p);
-        }
-    }
+    //get all admins
+    @GetMapping(value = "/XXXX", produces = {"application/json"})
+    public ResponseEntity<Collection<Administrator>> getAllAdministrators(){
+        Collection<Administrator> administrators = administratorRepository.getAllAdministrators();
 
-
-    //get all products
-    @GetMapping(value = "/XXXX", produces = {"application/json"})  //, "application/xml"
-    public ResponseEntity<Collection<Product>> getAllProducts(){
-        Collection<Product> products = service.getAllProducts();
-
-        return ResponseEntity.ok().body(products);
-    }
-
-
-    //update product
-    @PutMapping(value= "/XXXX/{id}", consumes={"application/json","application/xml"})
-    public ResponseEntity<Void> updateProduct(@PathVariable int id, @RequestBody Product product) {
-        if (!service.updateStock(product))
-            return ResponseEntity.notFound().build();
-        else
-            return ResponseEntity.ok().build();
-    }
-
-
-    //create
-    @PostMapping(
-            value= "/XXXX",
-            consumes={"application/json"},  //,"application/x-www-form-urlencoded"},
-            produces={"application/json"})
-    public void addProductToStock(@RequestBody Product product) {
-        System.out.println(product);
-        service.addToStock(product);
-        URI uri = URI.create("/products/" + product.getId());
-        // return ResponseEntity.created(uri).body(product);
-    }
-
-
-    @DeleteMapping("/XXXX/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable int id) {
-        if (!service.deleteFromStock(id))
-            return ResponseEntity.notFound().build();
-        else
-            return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(administrators);
     }
 
 

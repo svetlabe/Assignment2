@@ -26,4 +26,9 @@ public class Administrator {
     public Administrator() {
     }
 
+
+    public Administrator(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
+    }
 }

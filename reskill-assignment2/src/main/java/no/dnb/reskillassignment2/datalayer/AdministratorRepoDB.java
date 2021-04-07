@@ -1,6 +1,6 @@
 package no.dnb.reskillassignment2.datalayer;
 
-import no.dnb.reskillassignment2.Administrator;
+import no.dnb.reskillassignment2.model.Administrator;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

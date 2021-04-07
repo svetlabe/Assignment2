@@ -1,4 +1,4 @@
-package no.dnb.reskillassignment2;
+package no.dnb.reskillassignment2.datalayer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

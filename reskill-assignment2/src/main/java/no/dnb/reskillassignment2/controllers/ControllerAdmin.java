@@ -12,7 +12,7 @@ import java.util.Collection;
 
 
 @RestController
-    @RequestMapping("/")
+    @RequestMapping("/environment")
     @CrossOrigin
 
     public class ControllerAdmin {
@@ -26,16 +26,34 @@ import java.util.Collection;
     @Autowired
     EnvironmentsRepository environmentsRepository;
 
+    /*
+
+    o	Edit the description for an existing environment.
+o	Add a new environment.
+o	Add, edit, or delete an item of configuration data.
+o	View configuration data modifications within a specified timeframe.
+
+     */
 
     //get all admins
-    @GetMapping(value = "/admins", produces = {"application/json"})
+    @GetMapping(value = "/", produces = {"application/json"})
     public ResponseEntity<Collection<Administrator>> getAllAdministrators(){
         Collection<Administrator> administrators = administratorRepository.getAllAdministrators();
 
         return ResponseEntity.ok().body(administrators);
     }
 
-
+    //get one admin
+    @GetMapping(value = "/{username}", produces = {"application/json"})
+    public ResponseEntity<Administrator> getAdministratorByUserName(@PathVariable String username){
+        Administrator a = administratorRepository.getAdministratorByUserName(username);
+        if (a==null){
+            return ResponseEntity.notFound().build();
+        }
+        else{
+            return ResponseEntity.ok().body(a);
+        }
+    }
 
 
 }

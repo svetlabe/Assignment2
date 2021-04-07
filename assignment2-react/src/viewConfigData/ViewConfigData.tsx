@@ -10,7 +10,7 @@ export default function ViewConfigData() {
     let [configData, setConfigData] = React.useState<Array<any>>([])
 
     React.useEffect(() => {
-        fetch("http://localhost:8111/admin/configurationdata/")
+        fetch("http://localhost:8111/admin/configurationdata")
             .then(response => response.json())
             .then(configData => setConfigData(configData))
     }, [])
@@ -25,18 +25,18 @@ export default function ViewConfigData() {
 
             <div className="addConfigurationData">
                 <h2>Add configuration data</h2>
-                <form onSubmit={AddReviewFormMarkup}>
+                <form onSubmit={AddConfigurationData}>
                     <p>
                         <label htmlFor='name'>Name</label>
-                        <input type='text' id='name'/>
+                        <input id='name' type='text'/>
                     </p>
                     <p>
                         <label htmlFor='version'>Version</label>
-                        <input id='version' type='number' min={1}/>
+                        <input id='version' type='text' min={1}/>
                     </p>
                     <p>
                         <label htmlFor='date'>Date changed</label>
-                        <input id='date' type='number' min={1}/>
+                        <input id='date' type='text' min={1}/>
 
                     </p>
                     <p>
@@ -48,22 +48,15 @@ export default function ViewConfigData() {
 
 
             <div className="inStockTable">
-
                 {configDataToTable()}
             </div>
             <div className="changeData">
                 {changeData()}
-
             </div>
         </div>
     )
 
-    /*
-    function previousMapMethod(){
-        {products.map((p, i) => React.createElement(
-            "li", {key: i, title:p.id}, `${p.name}, price: ${p.price}, in stock: ${p.instock}`))}
-    }
-    */
+
 
     function changeData(){
         return(
@@ -130,18 +123,32 @@ export default function ViewConfigData() {
     }
 
 }
-function AddReviewFormMarkup() {
+function AddConfigurationData() {
 
-    let addProdAttributes = {
+    let addConfigDataAttributes = {
         name:  		(document.getElementById('name') as HTMLInputElement).value,
-        price:		(document.getElementById('price') as HTMLInputElement).value,
-        instock:	(document.getElementById('inStock') as HTMLInputElement).value
+        version:	(document.getElementById('version') as HTMLInputElement).value,
+        date:   	(document.getElementById('date') as HTMLInputElement).value
     }
 
-    fetch("http://localhost:8110/stock/products" ,
+    fetch("http://localhost:8111/admin/configurationdata" ,
         { method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(addProdAttributes)})
+            body: JSON.stringify(addConfigDataAttributes)})
 
+}
+
+function UpdateConfigurationData() {
+
+    let updateConfigDataAttributes = {
+        name:  		(document.getElementById('name') as HTMLInputElement).value,
+        version:	(document.getElementById('version') as HTMLInputElement).value,
+        date:   	(document.getElementById('date') as HTMLInputElement).value
+    }
+
+    fetch("http://localhost:8111/admin/configurationdata" ,
+        { method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updateConfigDataAttributes)})
 
 }

@@ -39,21 +39,28 @@ public class ConfigurationDataRepoDB implements ConfigurationDataRepository{
 
     @Override
     // do not allow update of Environment
-    public void updateConfiguration(ConfigurationData c) {
+    public boolean updateConfiguration(ConfigurationData c) {
         ConfigurationData configurationData = entityManager.find(ConfigurationData.class, c.getId());
         if( configurationData != null){
             configurationData.setName(c.getName());
             configurationData.setVersion(c.getVersion());
             configurationData.setDate(c.getDate());
+            return true;
+        } else{
+            return false;
         }
-
 
     }
 
     @Override
-    public void deleteConfiguration(long id) {
+    public boolean deleteConfiguration(long id) {
         ConfigurationData c = entityManager.find(ConfigurationData.class, id);
-        entityManager.remove(c);
+        if(c != null){
+            entityManager.remove(c);
+            return true;
+        } else{
+            return false;
+        }
 
     }
 }

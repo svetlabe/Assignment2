@@ -1,8 +1,10 @@
-package no.dnb.reskillassignment2;
+package no.dnb.reskillassignment2.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,6 +17,8 @@ public class Environment {
     private String shortName;
     @Column (name = "longname")
     private String longName;
+
+
 
 
     public Environment() {

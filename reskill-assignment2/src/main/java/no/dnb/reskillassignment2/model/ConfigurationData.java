@@ -1,5 +1,6 @@
-package no.dnb.reskillassignment2;
+package no.dnb.reskillassignment2.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,9 +15,14 @@ import java.util.Date;
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long id = -1;
 
+
         private String environment;
+
         private String version;
         private String date;
+
+
+
 
         public ConfigurationData() {
         }

@@ -25,9 +25,7 @@ import java.util.Collection;
     @Autowired
     EnvironmentsRepository environmentsRepository;
 
-    // TODO: 06.04.2021 change XXXX to actual path for website (ex. /destinations)
 
-    
     //get all admins
     @GetMapping(value = "/admins", produces = {"application/json"})
     public ResponseEntity<Collection<Administrator>> getAllAdministrators(){

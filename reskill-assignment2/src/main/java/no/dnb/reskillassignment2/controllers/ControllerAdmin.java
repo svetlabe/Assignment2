@@ -15,7 +15,7 @@ import java.util.Collection;
 
 
 @RestController
-    @RequestMapping("/")
+    @RequestMapping("/admin")
     @CrossOrigin
 
     public class ControllerAdmin {

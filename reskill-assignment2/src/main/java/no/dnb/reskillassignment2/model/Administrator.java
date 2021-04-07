@@ -2,8 +2,8 @@ package no.dnb.reskillassignment2.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-
 import javax.persistence.*;
+
 @Data
 @Entity
 @Table(name="ADMINISTRATORS")

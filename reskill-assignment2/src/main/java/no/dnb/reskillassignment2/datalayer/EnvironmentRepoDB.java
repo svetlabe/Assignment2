@@ -38,12 +38,13 @@ public class EnvironmentRepoDB implements EnvironmentsRepository{
 
     @Override
     @Transactional
-    public void updateEnvironment(Environment e) {
+    public boolean updateEnvironment(Environment e) {
         Environment environment = entityManager.find(Environment.class, e.getId());
         environment.setId(e.getId());
         environment.setShortName(e.getShortName());
         environment.setLongName(e.getLongName());
 
+        return false;
     }
 
     @Override

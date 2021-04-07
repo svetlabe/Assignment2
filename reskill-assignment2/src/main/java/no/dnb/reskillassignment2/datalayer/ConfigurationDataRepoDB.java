@@ -32,12 +32,14 @@ public class ConfigurationDataRepoDB implements ConfigurationDataRepository{
     }
 
     @Override
-    public void updateConfiguration(ConfigurationData configuration) {
+    public boolean updateConfiguration(ConfigurationData configuration) {
 
+        return false;
     }
 
     @Override
-    public void deleteConfiguration(long id) {
+    public boolean deleteConfiguration(long id) {
 
+        return false;
     }
 }

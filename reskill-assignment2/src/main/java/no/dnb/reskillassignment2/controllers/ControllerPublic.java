@@ -3,6 +3,7 @@ package no.dnb.reskillassignment2.controllers;
 
 import no.dnb.reskillassignment2.datalayer.ConfigurationDataRepository;
 import no.dnb.reskillassignment2.datalayer.EnvironmentsRepository;
+import no.dnb.reskillassignment2.model.Administrator;
 import no.dnb.reskillassignment2.model.ConfigurationData;
 import no.dnb.reskillassignment2.model.Environment;
 import org.springframework.beans.factory.annotation.Autowired;

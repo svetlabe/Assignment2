@@ -107,6 +107,7 @@ import java.util.Collection;
             consumes={"application/json"},  // if via html form: "application/x-www-form-urlencoded"},
             produces={"application/json"})
     public void insertConfiguration(@RequestBody ConfigurationData configuration) {
+
         configurationDataRepository.insertConfiguration(configuration);
     }
 

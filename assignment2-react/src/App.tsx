@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Menu from './Menu';
-import ViewConfigData from './ViewConfigData';
+import ViewConfigData from './viewConfigData/ViewConfigData';
 
 
 export default function App() {

@@ -18,6 +18,9 @@ public class Environment {
     @Column (name = "longname")
     private String longName;
 
+    @OneToMany(mappedBy="environment", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @JsonManagedReference
+    private List<ConfigurationData> configurationData;
 
 
 
@@ -34,5 +37,8 @@ public class Environment {
         this.longName = longName;
     }
 
+    // Lage en liste over alle environments (destinations - se review)
+    // Koble referanse mot configuration data
+    // tidsstempel
 
 }

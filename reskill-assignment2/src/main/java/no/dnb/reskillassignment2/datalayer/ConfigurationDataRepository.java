@@ -13,6 +13,6 @@ public interface ConfigurationDataRepository {
     Collection<ConfigurationData> getAllConfigurations();
     ConfigurationData getConfigurationById(long id);
     void insertConfiguration(ConfigurationData configuration);
-    void updateConfiguration(ConfigurationData configuration);
-    void deleteConfiguration(long id);
+    boolean updateConfiguration(ConfigurationData configuration);
+    boolean deleteConfiguration(long id);
 }

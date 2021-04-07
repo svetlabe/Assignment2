@@ -16,6 +16,8 @@ public class Administrator {
     private String userId;
     private String password;
 
+   //@JsonManagedReference TODO: Arild sjekker.
+
     public Administrator() {
     }
 
@@ -28,5 +30,6 @@ public class Administrator {
         this.userId = userId;
         this.password = password;
     }
+
 
 }

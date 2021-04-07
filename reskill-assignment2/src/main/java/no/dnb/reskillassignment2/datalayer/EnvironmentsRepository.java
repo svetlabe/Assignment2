@@ -13,6 +13,6 @@ public interface EnvironmentsRepository {
     Collection<Environment> getAllEnvironments();
     Environment getEnvironmentById(long id);
     void insertEnvironment(Environment environment);
-    void updateEnvironment(Environment environment);
+    boolean updateEnvironment(Environment environment);
     void deleteEnvironment(long id);
 }

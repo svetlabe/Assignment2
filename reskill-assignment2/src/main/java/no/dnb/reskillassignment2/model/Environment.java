@@ -1,8 +1,10 @@
-package no.dnb.reskillassignment2;
+package no.dnb.reskillassignment2.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,6 +17,11 @@ public class Environment {
     private String shortName;
     @Column (name = "longname")
     private String longName;
+
+    @OneToMany(mappedBy="environment", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @JsonManagedReference
+    private List<ConfigurationData> configurationData;
+
 
 
     public Environment() {
@@ -30,5 +37,8 @@ public class Environment {
         this.longName = longName;
     }
 
+    // Lage en liste over alle environments (destinations - se review)
+    // Koble referanse mot configuration data
+    // tidsstempel
 
 }

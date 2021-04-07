@@ -27,20 +27,6 @@ public class SeedDb {
 
 
         jdbcTemplate.update(
-                "insert into CONFIGURATIONDATA (environment, version, date) values (?,?,?)",
-                new Object[]{"DEV", "XC90", "230974"});
-
-        jdbcTemplate.update(
-                "insert into CONFIGURATIONDATA (environment, version, date) values (?,?,?)",
-                new Object[]{"TEST", "XC90", "141577"});
-
-        jdbcTemplate.update(
-                "insert into CONFIGURATIONDATA (environment, version, date) values (?,?,?)",
-                new Object[]{"PROD", "Taycan", "230788"});
-
-
-
-        jdbcTemplate.update(
                 "insert into ENVIRONMENTS (shortName, longName) values (?,?)",
                 new Object[]{"DEV", "This is the development envrionment"});
 
@@ -50,11 +36,23 @@ public class SeedDb {
         jdbcTemplate.update(
                 "insert into ENVIRONMENTS (shortName, longName) values (?,?)",
                 new Object[]{"PROD", "This is the production envrionment"});
+        jdbcTemplate.update(
+                "insert into ENVIRONMENTS (shortName, longName) values (?,?)",
+                new Object[]{"PROD2", "This is the production envrionment for retail banking"});
 
 
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{1,"Development for cars", "XC90", "230974"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name,version, date) values (?,?,?,?)",
+                new Object[]{2,"TEST for mainframe", "XC90", "141577"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{3,"PROD for retailbank", "Taycan", "230788"});
     }
-
-
-
 
 }

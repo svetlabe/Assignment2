@@ -27,15 +27,15 @@ public class SeedDb {
 
 
         jdbcTemplate.update(
-                "insert into CONFIGURATIONDATA (environment, version, date) values (?,?, ?)",
+                "insert into CONFIGURATIONDATA (environment, version, date) values (?,?,?)",
                 new Object[]{"DEV", "XC90", "230974"});
 
         jdbcTemplate.update(
-                "insert into CONFIGURATIONDATA (environment, version, date) values (?,?, ?)",
+                "insert into CONFIGURATIONDATA (environment, version, date) values (?,?,?)",
                 new Object[]{"TEST", "XC90", "141577"});
 
         jdbcTemplate.update(
-                "insert into CONFIGURATIONDATA (environment, version, date) values (?,?, ?)",
+                "insert into CONFIGURATIONDATA (environment, version, date) values (?,?,?)",
                 new Object[]{"PROD", "Taycan", "230788"});
 
 

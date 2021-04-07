@@ -29,9 +29,6 @@ import java.util.Date;
         }
 
         public ConfigurationData(String environment, String version, String date) {
-            this.id = -1;
-            this.environment = environment;
-            this.version = version;
-            this.date = date;
+           this(-1, environment, version, date);
         }
     }

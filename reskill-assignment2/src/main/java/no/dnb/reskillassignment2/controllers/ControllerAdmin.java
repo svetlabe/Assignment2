@@ -93,7 +93,7 @@ import java.util.Collection;
     }
 
     //edit configurationData
-    @PutMapping(value="/configurationData/{id}", consumes={"application/json"})
+    @PutMapping(value="/configurationdata/{id}", consumes={"application/json"})
     public ResponseEntity<Void> updateConfiguration(@PathVariable int id, @RequestBody ConfigurationData configuration) {
         if (!configurationDataRepository.updateConfiguration(configuration))
             return ResponseEntity.notFound().build();
@@ -103,14 +103,14 @@ import java.util.Collection;
 
     //add configurationData
     @PostMapping(
-            value="/configurationData",
+            value="/configurationdata",
             consumes={"application/json"},  // if via html form: "application/x-www-form-urlencoded"},
             produces={"application/json"})
     public void insertConfiguration(@RequestBody ConfigurationData configuration) {
         configurationDataRepository.insertConfiguration(configuration);
     }
 
-    @DeleteMapping("/configurationData/{id}")
+    @DeleteMapping("/configurationdata/{id}")
     public ResponseEntity<Void> deleteConfiguration(@PathVariable long id) {
         if (!configurationDataRepository.deleteConfiguration(id))
             return ResponseEntity.notFound().build();

@@ -1,0 +1,83 @@
+div.viewConfigData{
+
+    width: 100%
+
+}
+div.addConfigurationData{
+    float: left;
+    top: 1%;
+    width: 45%;
+    height: 40%;
+    margin-left: 1%;
+
+}
+div.configDataTable{
+    position: absolute;
+    top: 1%;
+    left: 30%;
+    width: 40%;
+    height: 85%;
+    margin-left: 1%;
+    overflow: auto;
+
+
+}
+
+div.editConfigurationData{
+    float: left;
+    top: 55%;
+    margin-top: 1%;
+    height: 70%;
+    margin-left: 1%;
+
+}
+
+div.onClick {
+
+    float: left;
+    width: 100%;
+    height: 10%;
+    margin-left: 1%;
+
+
+}
+
+div.deleteConfigurationData {
+
+    float: left;
+    width: 100%;
+    margin-top: 1%;
+    margin-left: 1%;
+
+
+}
+
+#configDataTable {
+    text-align: center;
+    font-family: arial, sans-serif;
+}
+
+#configDataTable {
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+}
+
+#configDataTable td, #configDataTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#configDataTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#configDataTable tr:hover {background-color: rgb(202, 142, 52);}
+
+#configDataTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}

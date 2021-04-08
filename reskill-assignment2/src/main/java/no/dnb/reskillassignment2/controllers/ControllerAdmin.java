@@ -6,6 +6,7 @@ import no.dnb.reskillassignment2.datalayer.ConfigurationDataRepository;
 import no.dnb.reskillassignment2.datalayer.EnvironmentsRepository;
 import no.dnb.reskillassignment2.model.ConfigurationData;
 import no.dnb.reskillassignment2.model.Environment;
+import no.dnb.reskillassignment2.service.AdministratorRepoDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ import java.util.Collection;
     public class ControllerAdmin {
 
     @Autowired
-    AdministratorRepository administratorRepository;
+    AdministratorRepoDB administratorRepository;
 
     @Autowired
     ConfigurationDataRepository configurationDataRepository;
@@ -30,17 +31,17 @@ import java.util.Collection;
     @Autowired
     EnvironmentsRepository environmentsRepository;
 
-    private final String SUPER_SECRET_TOKEN = "secret-token";
+    private final String SUPER_SECRET_TOKEN = "token";
 
 
     // TODO: 07.04.2021 :  View configuration data modifications within a specified timeframe.
 
-    // TODO : fikse back-end
+
 
     @PostMapping("/login")
     public ResponseEntity<Administrator> login(@RequestParam("user") String username,
-                                               @RequestParam("password") String pwd,
-                                               @RequestHeader("Authentication") String token) {
+                                               @RequestParam("password") String pwd)
+                                                {
 
         Administrator user = administratorRepository.getAdministratorByUserName(username);
         if (user != null) {
@@ -59,6 +60,7 @@ import java.util.Collection;
     }
    //get all admins
     @GetMapping(value = "/admins", produces = {"application/json"})
+
     public ResponseEntity<Collection<Administrator>> getAllAdministrators(){
         Collection<Administrator> administrators = administratorRepository.getAllAdministrators();
 
@@ -78,7 +80,9 @@ import java.util.Collection;
 
     //update environment (edit description)
     @PutMapping(value="/environments/{id}", consumes={"application/json"})
-    public ResponseEntity<Void> updateEnvironment(@PathVariable int id, @RequestBody Environment environment) {
+
+    public ResponseEntity<Void> updateEnvironment(@PathVariable int id, @RequestBody Environment environment,
+                                                  @RequestHeader("Authorisation") String token) {
         if (!environmentsRepository.updateEnvironment(environment))
             return ResponseEntity.notFound().build();
         else
@@ -93,9 +97,6 @@ import java.util.Collection;
     public void insertEnvironment(@RequestBody Environment environment) {
         environmentsRepository.insertEnvironment(environment);
     }
-
-
-
 
 
     //get all configurationData

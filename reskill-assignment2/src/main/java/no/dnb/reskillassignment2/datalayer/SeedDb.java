@@ -16,13 +16,13 @@ public class SeedDb {
     public void init() {
 
         jdbcTemplate.update(
-                "insert into ADMINISTRATORS (userid, password) values (?,?)",  "Svetlana", "hei");
+                "insert into ADMINISTRATORS (userid, password, role) values (?,?,?)",  "svetlana", "hei", "admin");
 
         jdbcTemplate.update(
-                "insert into ADMINISTRATORS (userid, password) values (?,?)",  "Knut", "hei");
+                "insert into ADMINISTRATORS (userid, password, role) values (?,?,?)",  "Knut", "hei", "admin");
 
         jdbcTemplate.update(
-                "insert into ADMINISTRATORS (userid, password) values (?,?)", "Arild", "hei");
+                "insert into ADMINISTRATORS (userid, password, role) values (?,?,?)", "Arild", "hei", "admin");
 
 
 

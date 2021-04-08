@@ -15,8 +15,12 @@ public class Administrator {
     @Column(name = "userid")
     private String userId;
     private String password;
+    private String role;
 
-   //@JsonManagedReference TODO: Arild sjekker.
+    @Transient // Prevents the variable from being stored in database
+    private String token;
+
+
 
     public Administrator() {
     }

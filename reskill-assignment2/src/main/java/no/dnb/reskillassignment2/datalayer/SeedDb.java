@@ -16,7 +16,7 @@ public class SeedDb {
     public void init() {
 
         jdbcTemplate.update(
-                "insert into ADMINISTRATORS (userid, password) values (?,?)",  "Svetlana", "hei");
+                "insert into ADMINISTRATORS (userid, password) values (?,?)",  "svetlana", "hei");
 
         jdbcTemplate.update(
                 "insert into ADMINISTRATORS (userid, password) values (?,?)",  "Knut", "hei");

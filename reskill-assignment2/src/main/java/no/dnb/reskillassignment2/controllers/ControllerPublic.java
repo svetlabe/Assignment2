@@ -54,7 +54,22 @@ public class ControllerPublic {
         else{
             return ResponseEntity.ok().body(c);
         }
+
     }
+    //get single environment
+    @GetMapping(value = "/environments/{id}", produces = {"application/json"})
+    public ResponseEntity<Environment> getEnvironmentById(@PathVariable long id){
+        Environment e = environmentsRepository.getEnvironmentById(id);
+        if (e == null){
+            return ResponseEntity.notFound().build();
+        }
+        else{
+            return ResponseEntity.ok().body(e);
+        }
+
+    }
+
+
 
 
 

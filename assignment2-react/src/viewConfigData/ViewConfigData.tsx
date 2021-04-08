@@ -46,35 +46,34 @@ export default function ViewConfigData() {
                 </form>
             </div>
 
-            <div className="editConfigurationData">
-                <h2>Edit configuration data</h2>
-                <form onSubmit={UpdateConfigurationData}>
-                    <p>
-                        <label htmlFor='id'>Enter id:</label>
-                        <input id='id' type='number'/>
-                    </p>
-                    <p>
-                        <label htmlFor='updatename'>New name</label>
-                        <input id='updatename' type='text'/>
-                    </p>
-                    <p>
-                        <label htmlFor='updateversion'>New version</label>
-                        <input id='updateversion' type='text' min={1}/>
-                    </p>
-                    <p>
-                        <label htmlFor='updatedate'>Date changed(skrote denne?)</label>
-                        <input id='updatedate' type='text' min={1}/>
+            {/*<div className="editConfigurationData">*/}
+            {/*    <h2>Edit configuration data</h2>*/}
+            {/*    <form onSubmit={UpdateConfigurationData}>*/}
+            {/*        <p>*/}
+            {/*            <label htmlFor='id'>Enter id:</label>*/}
+            {/*            <input id='id' type='number' min={1}/>*/}
+            {/*        </p>*/}
+            {/*        <p>*/}
+            {/*            <label htmlFor='updatename'>New name</label>*/}
+            {/*            <input id='updatename' type='text' placeholder={"Enter name"}/>*/}
+            {/*        </p>*/}
+            {/*        <p>*/}
+            {/*            <label htmlFor='updateversion'>New version</label>*/}
+            {/*            <input id='updateversion' type='text'/>*/}
+            {/*        </p>*/}
+            {/*        <p>*/}
+            {/*            <label htmlFor='updatedate'>Date changed(skrote denne?)</label>*/}
+            {/*            <input id='updatedate' type='text'/>*/}
 
-                    </p>
-                    <p>
-                        <label>&nbsp;</label> {/* Placeholder */}
-                        <button>Submit change</button>
-                    </p>
-                </form>
-            </div>
+            {/*        </p>*/}
+            {/*        <p>*/}
+            {/*            <label>&nbsp;</label> /!* Placeholder *!/*/}
+            {/*            <button>Submit change</button>*/}
+            {/*        </p>*/}
+            {/*    </form>*/}
+            {/*</div>*/}
 
-
-            <div className="inStockTable">
+            <div className="configDataTable">
                 {configDataToTable()}
             </div>
 
@@ -89,18 +88,57 @@ export default function ViewConfigData() {
 
             const showProd  =
                 <div className="onClick">
-                    You clicked on {configData.name}, date changed: {configData.price}
+                    <div className="editConfigurationData">
+                        <h2>Edit configuration data</h2>
+                        <form onSubmit={UpdateConfigurationData}>
+                            <p>
+                                <label htmlFor='id'>Id:</label>
+                                <input id='id' type='number' min={1} defaultValue={configData.id}/>
+                            </p>
+                            <p>
+                                <label htmlFor='updatename'>Name</label>
+                                <input id='updatename' type='text' placeholder={"Enter name"} defaultValue={configData.name}/>
+                            </p>
+                            <p>
+                                <label htmlFor='updateversion'>Version</label>
+                                <input id='updateversion' type='text' defaultValue={configData.version}/>
+                            </p>
+                            <p>
+                                <label htmlFor='updatedate'>Date changed(skrote denne?)</label>
+                                <input id='updatedate' type='text' defaultValue={configData.date}/>
+
+                            </p>
+                            <p>
+                                <label>&nbsp;</label> {/* Placeholder */}
+                                <button>Submit change</button>
+                            </p>
+                        </form>
+                    </div>
+
                 </div>
 
             render(showProd)
 
         }
 
+        // function onClick(configData: any) {
+        //
+        //     const showProd  =
+        //         <div className="onClick">
+        //             You clicked on {configData.name}, date changed: {configData.price}
+        //         </div>
+        //
+        //     render(showProd)
+        //
+        // }
+        // <tr onClick={() => onClick(configData)} key={configData.id}>
+
 
 
         function renderTableData() {
             return configData.map((configData, index) => {
                 return (
+
                     <tr onClick={() => onClick(configData)} key={configData.id}>
                         <td>{configData.id}</td>
                         <td>{configData.name}</td>

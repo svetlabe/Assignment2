@@ -94,7 +94,7 @@ import java.util.Collection;
 
     //edit configurationData
     @PutMapping(value="/configurationdata/{id}", consumes={"application/json"})
-    public ResponseEntity<Void> updateConfiguration(@PathVariable int id, @RequestBody ConfigurationData configuration) {
+    public ResponseEntity<Void> updateConfiguration(@PathVariable long id, @RequestBody ConfigurationData configuration) {
         if (!configurationDataRepository.updateConfiguration(configuration))
             return ResponseEntity.notFound().build();
         else

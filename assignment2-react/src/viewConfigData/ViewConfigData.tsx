@@ -159,6 +159,7 @@ function UpdateConfigurationData() {
     var id = (document.getElementById('id') as HTMLInputElement).value;
 
     let updateConfigDataAttributes = {
+        id:         (document.getElementById('id') as HTMLInputElement).value,
         name:  		(document.getElementById('updatename') as HTMLInputElement).value,
         version:	(document.getElementById('updateversion') as HTMLInputElement).value,
         date:   	(document.getElementById('updatedate') as HTMLInputElement).value

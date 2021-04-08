@@ -77,19 +77,19 @@ export default function ViewConfigData() {
                         <h2>Edit configuration data</h2>
                         <form onSubmit={UpdateConfigurationData}>
                             <p>
-                                <label htmlFor='id'>Id:</label>
-                                <input id='id' type='number' min={1} defaultValue={configData.id}/>
+                                <label htmlFor='updateid'>Id: </label>
+                                <input id='updateid' type='number' min={1} defaultValue={configData.id}/>
                             </p>
                             <p>
-                                <label htmlFor='updatename'>Name</label>
+                                <label htmlFor='updatename'>Name </label>
                                 <input id='updatename' type='text' placeholder={"Enter name"} defaultValue={configData.name}/>
                             </p>
                             <p>
-                                <label htmlFor='updateversion'>Version</label>
+                                <label htmlFor='updateversion'>Version </label>
                                 <input id='updateversion' type='text' defaultValue={configData.version}/>
                             </p>
                             <p>
-                                <label htmlFor='updatedate'>Date changed(skrote denne?)<br/></label>
+                                <label htmlFor='updatedate'>Date changed(skrote denne?) <br/></label>
                                 <input id='updatedate' type='text' defaultValue={configData.date}/>
 
                             </p>
@@ -139,6 +139,7 @@ export default function ViewConfigData() {
         return (
             <div>
                 <h2>Configuration Data</h2>
+                <p><h3>Click tablerow to edit</h3></p>
                 <table id="configDataTable">
                     <tbody>
                     {renderTableHeader()}
@@ -172,10 +173,10 @@ function AddConfigurationData() {
 
 function UpdateConfigurationData() {
 
-    var id = (document.getElementById('id') as HTMLInputElement).value;
+    var id = (document.getElementById('updateid') as HTMLInputElement).value;
 
     let updateConfigDataAttributes = {
-        id:         (document.getElementById('id') as HTMLInputElement).value,
+        id:         (document.getElementById('updateid') as HTMLInputElement).value,
         name:  		(document.getElementById('updatename') as HTMLInputElement).value,
         version:	(document.getElementById('updateversion') as HTMLInputElement).value,
         date:   	(document.getElementById('updatedate') as HTMLInputElement).value

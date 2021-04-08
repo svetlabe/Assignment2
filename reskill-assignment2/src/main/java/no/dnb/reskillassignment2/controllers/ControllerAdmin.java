@@ -35,8 +35,12 @@ import java.util.Collection;
 
     // TODO: 07.04.2021 :  View configuration data modifications within a specified timeframe.
 
+    // TODO : fikse back-end
+
     @PostMapping("/login")
-    public ResponseEntity<Administrator> login(@RequestParam("user") String username, @RequestParam("password") String pwd) {
+    public ResponseEntity<Administrator> login(@RequestParam("user") String username,
+                                               @RequestParam("password") String pwd,
+                                               @RequestHeader("Authentication") String token) {
 
         Administrator user = administratorRepository.getAdministratorByUserName(username);
         if (user != null) {

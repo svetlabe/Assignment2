@@ -7,12 +7,12 @@ import { render } from "@testing-library/react";
 
 export default function ViewConfigData() {
 
-    let [products, setProducts] = React.useState<Array<any>>([])
+    let [configData, setConfigData] = React.useState<Array<any>>([])
 
     React.useEffect(() => {
-        fetch("http://localhost:8111/admin/configurationdata/")
+        fetch("http://localhost:8111/admin/configurationdata")
             .then(response => response.json())
-            .then(products => setProducts(products))
+            .then(configData => setConfigData(configData))
     }, [])
 
 
@@ -23,77 +23,103 @@ export default function ViewConfigData() {
         <div className="viewConfigData">
 
 
-            <div className="addProd">
-                <h2>Add product</h2>
-                <form onSubmit={AddReviewFormMarkup}>
+            <div className="addConfigurationData">
+                <h2>Add configuration data</h2>
+                <form onSubmit={AddConfigurationData}>
                     <p>
                         <label htmlFor='name'>Name</label>
-                        <input type='text' id='name'/>
+                        <input id='name' type='text'/>
                     </p>
                     <p>
-                        <label htmlFor='price'>Price</label>
-                        <input id='price' type='number' min={1}/>
+                        <label htmlFor='version'>Version</label>
+                        <input id='version' type='text' min={1}/>
                     </p>
                     <p>
-                        <label htmlFor='inStock'>Units in stock</label>
-                        <input id='inStock' type='number' min={1}/>
+                        <label htmlFor='date'>Date changed</label>
+                        <input id='date' type='text' min={1}/>
 
                     </p>
                     <p>
                         <label>&nbsp;</label> {/* Placeholder */}
-                        <button>Add product</button>
+                        <button>Add to database</button>
                     </p>
                 </form>
             </div>
 
+            <div className="deleteConfigurationData">
+                <h2>Delete configuration data</h2>
+                <form onSubmit={DeleteConfigurationData}>
+                    <p>
+                        <label htmlFor='id'>Id:</label>
+                        <input id='id' type='number' min={1}/>
+                    </p>
+                    <button>Delete</button>
 
-            <div className="inStockTable">
+                </form>
+            </div>
 
+            <div className="configDataTable">
                 {configDataToTable()}
             </div>
-            <div className="changeData">
-                {changeData()}
 
-            </div>
         </div>
     )
 
-    /*
-    function previousMapMethod(){
-        {products.map((p, i) => React.createElement(
-            "li", {key: i, title:p.id}, `${p.name}, price: ${p.price}, in stock: ${p.instock}`))}
-    }
-    */
 
-    function changeData(){
-        return(
-            <div >
-                <h2>Change data here</h2>
-                Data data data
-            </div>
-        )
-    }
 
     function configDataToTable(){
 
-        function onClick(product: any) {
+        function onClick(configData: any) {
 
             const showProd  =
                 <div className="onClick">
-                    You clicked on {product.name}, price: {product.price}
+                    <div className="editConfigurationData">
+                        <h2>Edit configuration data</h2>
+                        <form onSubmit={UpdateConfigurationData}>
+                            <p>
+                                <label htmlFor='updateid'>Id: </label>
+                                <input id='updateid' type='number' min={1} defaultValue={configData.id}/>
+                            </p>
+                            <p>
+                                <label htmlFor='updatename'>Name </label>
+                                <input id='updatename' type='text' placeholder={"Enter name"} defaultValue={configData.name}/>
+                            </p>
+                            <p>
+                                <label htmlFor='updateversion'>Version </label>
+                                <input id='updateversion' type='text' defaultValue={configData.version}/>
+                            </p>
+                            <p>
+                                <label htmlFor='updatedate'>Date changed(skrote denne?) <br/></label>
+                                <input id='updatedate' type='text' defaultValue={configData.date}/>
+
+                            </p>
+                            <p>
+                                <label>&nbsp;</label> {/* Placeholder */}
+                                <button>Submit change</button>
+                            </p>
+                        </form>
+                    </div>
+
                 </div>
 
             render(showProd)
+
+
+
         }
 
+
+
+
         function renderTableData() {
-            return products.map((product, index) => {
+            return configData.map((configData, index) => {
                 return (
-                    <tr onClick={() => onClick(product)} key={product.id}>
-                        <td>{product.id}</td>
-                        <td>{product.name}</td>
-                        <td>{product.price}</td>
-                        <td>{product.instock}</td>
+
+                    <tr onClick={() => onClick(configData)} key={configData.id}>
+                        <td>{configData.id}</td>
+                        <td>{configData.name}</td>
+                        <td>{configData.version}</td>
+                        <td>{configData.date}</td>
                     </tr>
 
                 )
@@ -102,7 +128,7 @@ export default function ViewConfigData() {
         }
 
         function renderTableHeader() {
-            const test =  ["id", "name", "price", "units in stock"]
+            const test =  ["id", "name", "version", "date changed"]
             return test.map((key, index) => {
                 return <th>{key.toUpperCase()} </th>
             })
@@ -112,8 +138,9 @@ export default function ViewConfigData() {
 
         return (
             <div>
-                <h2>Products in stock</h2>
-                <table id='productTable'>
+                <h2>Configuration Data</h2>
+                <p><h3>Click tablerow to edit</h3></p>
+                <table id="configDataTable">
                     <tbody>
                     {renderTableHeader()}
                     {renderTableData()}
@@ -127,18 +154,51 @@ export default function ViewConfigData() {
     }
 
 }
-function AddReviewFormMarkup() {
 
-    let addProdAttributes = {
+
+function AddConfigurationData() {
+
+    let addConfigDataAttributes = {
         name:  		(document.getElementById('name') as HTMLInputElement).value,
-        price:		(document.getElementById('price') as HTMLInputElement).value,
-        instock:	(document.getElementById('inStock') as HTMLInputElement).value
+        version:	(document.getElementById('version') as HTMLInputElement).value,
+        date:   	(document.getElementById('date') as HTMLInputElement).value
     }
 
-    fetch("http://localhost:8110/stock/products" ,
+    fetch("http://localhost:8111/admin/configurationdata" ,
         { method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(addProdAttributes)})
+            body: JSON.stringify(addConfigDataAttributes)})
 
+}
+
+function UpdateConfigurationData() {
+
+    var id = (document.getElementById('updateid') as HTMLInputElement).value;
+
+    let updateConfigDataAttributes = {
+        id:         (document.getElementById('updateid') as HTMLInputElement).value,
+        name:  		(document.getElementById('updatename') as HTMLInputElement).value,
+        version:	(document.getElementById('updateversion') as HTMLInputElement).value,
+        date:   	(document.getElementById('updatedate') as HTMLInputElement).value
+    }
+
+    fetch("http://localhost:8111/admin/configurationdata/" +id,
+        { method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updateConfigDataAttributes)})
+
+}
+
+function DeleteConfigurationData() {
+
+    var id = (document.getElementById('id') as HTMLInputElement).value;
+
+    let deleteConfigDataAttributes = {
+        id:         (document.getElementById('id') as HTMLInputElement).value}
+
+    fetch("http://localhost:8111/admin/configurationdata/" +id,
+        { method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(deleteConfigDataAttributes)})
 
 }

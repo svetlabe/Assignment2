@@ -7,6 +7,7 @@ import no.dnb.reskillassignment2.datalayer.EnvironmentsRepository;
 import no.dnb.reskillassignment2.model.ConfigurationData;
 import no.dnb.reskillassignment2.model.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,17 +30,42 @@ import java.util.Collection;
     @Autowired
     EnvironmentsRepository environmentsRepository;
 
+    private final String SUPER_SECRET_TOKEN = "secret-token";
+
 
     // TODO: 07.04.2021 :  View configuration data modifications within a specified timeframe.
 
+    // TODO : fikse back-end
 
-    //get all admins
+    @PostMapping("/login")
+    public ResponseEntity<Administrator> login(@RequestParam("user") String username,
+                                               @RequestParam("password") String pwd,
+                                               @RequestHeader("Authentication") String token) {
+
+        Administrator user = administratorRepository.getAdministratorByUserName(username);
+        if (user != null) {
+            if (user.getPassword().equalsIgnoreCase(pwd)) {
+                user.setToken(SUPER_SECRET_TOKEN);
+                return ResponseEntity.ok().body(user);
+            }
+            else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            }
+
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
+   //get all admins
     @GetMapping(value = "/admins", produces = {"application/json"})
     public ResponseEntity<Collection<Administrator>> getAllAdministrators(){
         Collection<Administrator> administrators = administratorRepository.getAllAdministrators();
 
         return ResponseEntity.ok().body(administrators);
     }
+
+
 
 
     //get all environments
@@ -94,7 +120,7 @@ import java.util.Collection;
 
     //edit configurationData
     @PutMapping(value="/configurationdata/{id}", consumes={"application/json"})
-    public ResponseEntity<Void> updateConfiguration(@PathVariable int id, @RequestBody ConfigurationData configuration) {
+    public ResponseEntity<Void> updateConfiguration(@PathVariable long id, @RequestBody ConfigurationData configuration) {
         if (!configurationDataRepository.updateConfiguration(configuration))
             return ResponseEntity.notFound().build();
         else
@@ -107,6 +133,7 @@ import java.util.Collection;
             consumes={"application/json"},  // if via html form: "application/x-www-form-urlencoded"},
             produces={"application/json"})
     public void insertConfiguration(@RequestBody ConfigurationData configuration) {
+
         configurationDataRepository.insertConfiguration(configuration);
     }
 
@@ -117,6 +144,7 @@ import java.util.Collection;
         else
             return ResponseEntity.ok().build();
     }
-    
+
+    // trenger vi en valideringsmetode eller vi kan sende alt gjennom login?
 
 }

@@ -3,46 +3,61 @@ div.viewConfigData{
     width: 100%
 
 }
-div.addProd{
-    position: absolute;
-    top: 10%;
+div.addConfigurationData{
+    float: left;
+    top: 1%;
     width: 45%;
     height: 40%;
     margin-left: 1%;
 
 }
-div.inStockTable{
+div.configDataTable{
     position: absolute;
-    top: 10%;
+    top: 1%;
     left: 30%;
     width: 40%;
+    height: 85%;
     margin-left: 1%;
+    overflow: auto;
+
 
 }
 
-div.changeData{
-    color:rgb(105, 68, 12);
-    position: absolute;
-    top: 45%;
+div.editConfigurationData{
+    float: left;
+    top: 55%;
+    margin-top: 1%;
+    height: 70%;
     margin-left: 1%;
 
 }
 
 div.onClick {
-    color: red;
+
     float: left;
     width: 100%;
     height: 10%;
     margin-left: 1%;
 
+
 }
 
-#productTable {
+div.deleteConfigurationData {
+
+    float: left;
+    width: 100%;
+    margin-top: 1%;
+    margin-left: 1%;
+
+
+}
+
+#configDataTable {
     text-align: center;
     font-family: arial, sans-serif;
 }
 
-#productTable {
+#configDataTable {
     text-align: center;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -50,16 +65,16 @@ div.onClick {
     width: 100%;
 }
 
-#productTable td, #productTable th {
+#configDataTable td, #configDataTable th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#productTable tr:nth-child(even){background-color: #f2f2f2;}
+#configDataTable tr:nth-child(even){background-color: #f2f2f2;}
 
-#productTable tr:hover {background-color: rgb(202, 142, 52);}
+#configDataTable tr:hover {background-color: rgb(202, 142, 52);}
 
-#productTable th {
+#configDataTable th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;

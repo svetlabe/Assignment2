@@ -87,6 +87,52 @@ public class SeedDb {
         jdbcTemplate.update(
                 "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
                 new Object[]{3,"PROD for retailbank", "Taycan", "230788"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{1,"Development for cars", "XC90", "230974"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name,version, date) values (?,?,?,?)",
+                new Object[]{2,"TEST for mainframe", "XC90", "141577"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{3,"PROD for retailbank", "Taycan", "230788"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{1,"Development for cars", "XC90", "230974"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name,version, date) values (?,?,?,?)",
+                new Object[]{2,"TEST for mainframe", "XC90", "141577"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{3,"PROD for retailbank", "Taycan", "230788"});
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{1,"Development for cars", "XC90", "230974"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name,version, date) values (?,?,?,?)",
+                new Object[]{2,"TEST for mainframe", "XC90", "141577"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{3,"PROD for retailbank", "Taycan", "230788"});
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{1,"Development for cars", "XC90", "230974"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name,version, date) values (?,?,?,?)",
+                new Object[]{2,"TEST for mainframe", "XC90", "141577"});
+
+        jdbcTemplate.update(
+                "insert into CONFIGURATIONDATA (environment_id, name, version, date) values (?,?,?,?)",
+                new Object[]{3,"PROD for retailbank", "Taycan", "230788"});
     }
 
 }

@@ -37,7 +37,7 @@ import java.util.Collection;
     // TODO: 07.04.2021 :  View configuration data modifications within a specified timeframe.
 
 
-
+// We need this one to get token
     @PostMapping("/login")
     public ResponseEntity<Administrator> login(@RequestParam("user") String username,
                                                @RequestParam("password") String pwd)
@@ -58,10 +58,11 @@ import java.util.Collection;
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
-   //get all admins
+   //get all admins; requires token in header to be able to see admins
     @GetMapping(value = "/admins", produces = {"application/json"})
 
-    public ResponseEntity<Collection<Administrator>> getAllAdministrators(){
+    public ResponseEntity<Collection<Administrator>> getAllAdministrators(
+            @RequestHeader("Authorisation") String token){
         Collection<Administrator> administrators = administratorRepository.getAllAdministrators();
 
         return ResponseEntity.ok().body(administrators);
@@ -70,7 +71,7 @@ import java.util.Collection;
 
 
 
-    //get all environments
+    //get all environments; doesn't need token, it is GET-request that is available for everyone
     @GetMapping(value = "/environments", produces = {"application/json"})
     public ResponseEntity<Collection<Environment>> getAllEnvironments(){
         Collection<Environment> environments = environmentsRepository.getAllEnvironments();
@@ -81,7 +82,8 @@ import java.util.Collection;
     //update environment (edit description)
     @PutMapping(value="/environments/{id}", consumes={"application/json"})
 
-    public ResponseEntity<Void> updateEnvironment(@PathVariable int id, @RequestBody Environment environment,
+    public ResponseEntity<Void> updateEnvironment(@PathVariable int id,
+                                                  @RequestBody Environment environment,
                                                   @RequestHeader("Authorisation") String token) {
         if (!environmentsRepository.updateEnvironment(environment))
             return ResponseEntity.notFound().build();
@@ -94,7 +96,8 @@ import java.util.Collection;
             value="/environments",
             consumes={"application/json"},  // if via html form: "application/x-www-form-urlencoded"},
             produces={"application/json"})
-    public void insertEnvironment(@RequestBody Environment environment) {
+    public void insertEnvironment(@RequestBody Environment environment,
+                                  @RequestHeader("Authorisation") String token) {
         environmentsRepository.insertEnvironment(environment);
     }
 
@@ -121,7 +124,9 @@ import java.util.Collection;
 
     //edit configurationData
     @PutMapping(value="/configurationdata/{id}", consumes={"application/json"})
-    public ResponseEntity<Void> updateConfiguration(@PathVariable long id, @RequestBody ConfigurationData configuration) {
+    public ResponseEntity<Void> updateConfiguration(@PathVariable long id,
+                                                    @RequestBody ConfigurationData configuration,
+                                                    @RequestHeader("Authorisation") String token) {
         if (!configurationDataRepository.updateConfiguration(configuration))
             return ResponseEntity.notFound().build();
         else
@@ -133,19 +138,21 @@ import java.util.Collection;
             value="/configurationdata",
             consumes={"application/json"},  // if via html form: "application/x-www-form-urlencoded"},
             produces={"application/json"})
-    public void insertConfiguration(@RequestBody ConfigurationData configuration) {
+    public void insertConfiguration(@RequestBody ConfigurationData configuration,
+                                    @RequestHeader("Authorisation") String token) {
 
         configurationDataRepository.insertConfiguration(configuration);
     }
 
     @DeleteMapping("/configurationdata/{id}")
-    public ResponseEntity<Void> deleteConfiguration(@PathVariable long id) {
+    public ResponseEntity<Void> deleteConfiguration(@PathVariable long id,
+                                                    @RequestHeader("Authorisation") String token) {
         if (!configurationDataRepository.deleteConfiguration(id))
             return ResponseEntity.notFound().build();
         else
             return ResponseEntity.ok().build();
     }
 
-    // trenger vi en valideringsmetode eller vi kan sende alt gjennom login?
+
 
 }

@@ -20,10 +20,11 @@ div.inStockTable{
 
 }
 
-div.changeData{
-    color:rgb(105, 68, 12);
+div.editConfigurationData{
     position: absolute;
     top: 55%;
+    width: 45%;
+    height: 40%;
     margin-left: 1%;
 
 }

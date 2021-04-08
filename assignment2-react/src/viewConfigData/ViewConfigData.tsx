@@ -46,26 +46,42 @@ export default function ViewConfigData() {
                 </form>
             </div>
 
+            <div className="editConfigurationData">
+                <h2>Edit configuration data</h2>
+                <form onSubmit={UpdateConfigurationData}>
+                    <p>
+                        <label htmlFor='id'>Enter id:</label>
+                        <input id='id' type='number'/>
+                    </p>
+                    <p>
+                        <label htmlFor='updatename'>New name</label>
+                        <input id='updatename' type='text'/>
+                    </p>
+                    <p>
+                        <label htmlFor='updateversion'>New version</label>
+                        <input id='updateversion' type='text' min={1}/>
+                    </p>
+                    <p>
+                        <label htmlFor='updatedate'>Date changed(skrote denne?)</label>
+                        <input id='updatedate' type='text' min={1}/>
+
+                    </p>
+                    <p>
+                        <label>&nbsp;</label> {/* Placeholder */}
+                        <button>Submit change</button>
+                    </p>
+                </form>
+            </div>
+
 
             <div className="inStockTable">
                 {configDataToTable()}
             </div>
-            <div className="changeData">
-                {changeData()}
-            </div>
+
         </div>
     )
 
 
-
-    function changeData(){
-        return(
-            <div >
-                <h2>Change data here</h2>
-                Data data data
-            </div>
-        )
-    }
 
     function configDataToTable(){
 
@@ -140,14 +156,16 @@ function AddConfigurationData() {
 
 function UpdateConfigurationData() {
 
+    var id = (document.getElementById('id') as HTMLInputElement).value;
+
     let updateConfigDataAttributes = {
-        name:  		(document.getElementById('name') as HTMLInputElement).value,
-        version:	(document.getElementById('version') as HTMLInputElement).value,
-        date:   	(document.getElementById('date') as HTMLInputElement).value
+        name:  		(document.getElementById('updatename') as HTMLInputElement).value,
+        version:	(document.getElementById('updateversion') as HTMLInputElement).value,
+        date:   	(document.getElementById('updatedate') as HTMLInputElement).value
     }
 
-    fetch("http://localhost:8111/admin/configurationdata" ,
-        { method: 'POST',
+    fetch("http://localhost:8111/admin/configurationdata/" +id,
+        { method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updateConfigDataAttributes)})
 

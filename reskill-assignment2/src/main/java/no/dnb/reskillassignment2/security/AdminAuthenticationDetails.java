@@ -1,5 +1,5 @@
 package no.dnb.reskillassignment2.security;
-
+/*
 import no.dnb.reskillassignment2.model.Administrator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -54,3 +54,4 @@ public class AdminAuthenticationDetails implements UserDetails {
         return true;
     }
 }
+*/

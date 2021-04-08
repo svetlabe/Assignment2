@@ -1,5 +1,5 @@
 package no.dnb.reskillassignment2.security;
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,10 +35,11 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/environments/*", "/environments", "/admins", "/admin", "/configurationdata").permitAll()
+                .antMatchers("/", "/environments/*", "/environments", "/admin/configurationdata/*", "/admin/*", "/configurationdata").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
     }
 
 }
+*/

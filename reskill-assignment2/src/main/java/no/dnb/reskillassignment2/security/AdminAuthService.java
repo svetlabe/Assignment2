@@ -1,5 +1,5 @@
 package no.dnb.reskillassignment2.security;
-
+/*
 import no.dnb.reskillassignment2.datalayer.AdministratorRepoDB;
 import no.dnb.reskillassignment2.model.Administrator;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,3 +25,4 @@ public class AdminAuthService implements UserDetailsService {
         return new  AdminAuthenticationDetails (admin);
     }
 }
+*/

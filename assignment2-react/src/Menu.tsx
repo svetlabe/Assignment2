@@ -6,7 +6,9 @@ function Menu() {
     return (
         <nav>
             {/*<NavLink exact to="/">Home</NavLink>&nbsp;|&nbsp;*/}
-            <NavLink to="/viewconfigdata">View Configuration Data</NavLink>&nbsp;|&nbsp;
+            <NavLink exact to="/">Home </NavLink>&nbsp;|&nbsp;
+            <NavLink  to="/">View Configuration Data</NavLink>&nbsp;|&nbsp;
+            <NavLink  to="/login">Login (for administrators)</NavLink>&nbsp;|&nbsp;
 
         </nav>
     )

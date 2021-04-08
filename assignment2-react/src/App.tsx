@@ -1,21 +1,29 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Menu from './Menu';
 import ViewConfigData from './viewConfigData/ViewConfigData';
 
 
-export default function App() {
+
+function App() {
   return (
+
 
       <div>
 
-        <ViewConfigData/>
+
+              <Menu />
+
+
+
+              <ViewConfigData />
 
 
 
       </div>
+
   );
+          }
 
-}
-
+export default App;
 

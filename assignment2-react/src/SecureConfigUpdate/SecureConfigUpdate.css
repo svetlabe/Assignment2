@@ -5,7 +5,7 @@ div.viewConfigData{
 }
 div.addConfigurationData{
     float: left;
-    top: 3%;
+    top: 1%;
     width: 45%;
     height: 40%;
     margin-left: 1%;
@@ -13,7 +13,7 @@ div.addConfigurationData{
 }
 div.configDataTable{
     position: absolute;
-    top: 8%;
+    top: 1%;
     left: 30%;
     width: 40%;
     height: 85%;
@@ -78,6 +78,6 @@ div.deleteConfigurationData {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: teal;
+    background-color: #4CAF50;
     color: white;
 }

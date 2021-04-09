@@ -16,8 +16,7 @@ export default function ViewConfigData() {
     }, [])
 
 
-
-
+//her er det som blir vist på siden:
 
     return (
         <div className="viewConfigData">
@@ -67,74 +66,9 @@ export default function ViewConfigData() {
 
 
 
-    function configDataToTable(){
+    //functions:
 
-        function onClick(configData: any) {
-
-            const showProd  =
-                <div className="onClick">
-                    <div className="editConfigurationData">
-                        <h2>Edit configuration data</h2>
-                        <form onSubmit={UpdateConfigurationData}>
-                            <p>
-                                <label htmlFor='updateid'>Id: </label>
-                                <input id='updateid' type='number' min={1} defaultValue={configData.id}/>
-                            </p>
-                            <p>
-                                <label htmlFor='updatename'>Name </label>
-                                <input id='updatename' type='text' placeholder={"Enter name"} defaultValue={configData.name}/>
-                            </p>
-                            <p>
-                                <label htmlFor='updateversion'>Version </label>
-                                <input id='updateversion' type='text' defaultValue={configData.version}/>
-                            </p>
-                            <p>
-                                <label htmlFor='updatedate'>Date changed(skrote denne?) <br/></label>
-                                <input id='updatedate' type='text' defaultValue={configData.date}/>
-
-                            </p>
-                            <p>
-                                <label>&nbsp;</label> {/* Placeholder */}
-                                <button>Submit change</button>
-                            </p>
-                        </form>
-                    </div>
-
-                </div>
-
-            render(showProd)
-
-
-
-        }
-
-
-
-
-        function renderTableData() {
-            return configData.map((configData, index) => {
-                return (
-
-                    <tr onClick={() => onClick(configData)} key={configData.id}>
-                        <td>{configData.id}</td>
-                        <td>{configData.name}</td>
-                        <td>{configData.version}</td>
-                        <td>{configData.date}</td>
-                    </tr>
-
-                )
-            })
-
-        }
-
-        function renderTableHeader() {
-            const test =  ["id", "name", "version", "date changed"]
-            return test.map((key, index) => {
-                return <th>{key.toUpperCase()} </th>
-            })
-        }
-
-
+    function configDataToTable() {
 
         return (
             <div>
@@ -149,56 +83,121 @@ export default function ViewConfigData() {
             </div>
         )
 
+    }
 
+    function renderTableData() {
+        return configData.map((configData, index) => {
+            return (
+
+                <tr onClick={() => onClick(configData)} key={configData.id}>
+                    <td>{configData.id}</td>
+                    <td>{configData.name}</td>
+                    <td>{configData.version}</td>
+                    <td>{configData.date}</td>
+                </tr>
+
+            )
+        })
 
     }
 
-}
-
-
-function AddConfigurationData() {
-
-    let addConfigDataAttributes = {
-        name:  		(document.getElementById('name') as HTMLInputElement).value,
-        version:	(document.getElementById('version') as HTMLInputElement).value,
-        date:   	(document.getElementById('date') as HTMLInputElement).value
+    function renderTableHeader() {
+        const test = ["id", "name", "version", "date changed"]
+        return test.map((key, index) => {
+            return <th>{key.toUpperCase()} </th>
+        })
     }
 
-    fetch("http://localhost:8111/admin/configurationdata" ,
-        { method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(addConfigDataAttributes)})
+    function onClick(configData: any) {
 
-}
+        const showProd =
+            <div className="onClick">
+                <div className="editConfigurationData">
+                    <h2>Edit configuration data</h2>
+                    <form onSubmit={UpdateConfigurationData}>
+                        <p>
+                            <label htmlFor='updateid'>Id: </label>
+                            <input id='updateid' type='number' min={1} defaultValue={configData.id}/>
+                        </p>
+                        <p>
+                            <label htmlFor='updatename'>Name </label>
+                            <input id='updatename' type='text' placeholder={"Enter name"}
+                                   defaultValue={configData.name}/>
+                        </p>
+                        <p>
+                            <label htmlFor='updateversion'>Version </label>
+                            <input id='updateversion' type='text' defaultValue={configData.version}/>
+                        </p>
+                        <p>
+                            <label htmlFor='updatedate'>Date changed(skrote denne?) <br/></label>
+                            <input id='updatedate' type='text' defaultValue={configData.date}/>
 
-function UpdateConfigurationData() {
+                        </p>
+                        <p>
+                            <label>&nbsp;</label> {/* Placeholder */}
+                            <button>Submit change</button>
+                        </p>
+                    </form>
+                </div>
 
-    var id = (document.getElementById('updateid') as HTMLInputElement).value;
+            </div>
 
-    let updateConfigDataAttributes = {
-        id:         (document.getElementById('updateid') as HTMLInputElement).value,
-        name:  		(document.getElementById('updatename') as HTMLInputElement).value,
-        version:	(document.getElementById('updateversion') as HTMLInputElement).value,
-        date:   	(document.getElementById('updatedate') as HTMLInputElement).value
+        render(showProd)
+
     }
 
-    fetch("http://localhost:8111/admin/configurationdata/" +id,
-        { method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updateConfigDataAttributes)})
+    function AddConfigurationData() {
 
-}
+        let addConfigDataAttributes = {
+            name: (document.getElementById('name') as HTMLInputElement).value,
+            version: (document.getElementById('version') as HTMLInputElement).value,
+            date: (document.getElementById('date') as HTMLInputElement).value
+        }
 
-function DeleteConfigurationData() {
+        fetch("http://localhost:8111/admin/configurationdata",
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json', 'Authorisation': 'token'},
+                body: JSON.stringify(addConfigDataAttributes)
+            })
 
-    var id = (document.getElementById('id') as HTMLInputElement).value;
+    }
 
-    let deleteConfigDataAttributes = {
-        id:         (document.getElementById('id') as HTMLInputElement).value}
+    function UpdateConfigurationData() {
 
-    fetch("http://localhost:8111/admin/configurationdata/" +id,
-        { method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(deleteConfigDataAttributes)})
+        var id = (document.getElementById('updateid') as HTMLInputElement).value;
+
+        let updateConfigDataAttributes = {
+            id: (document.getElementById('updateid') as HTMLInputElement).value,
+            name: (document.getElementById('updatename') as HTMLInputElement).value,
+            version: (document.getElementById('updateversion') as HTMLInputElement).value,
+            date: (document.getElementById('updatedate') as HTMLInputElement).value
+        }
+
+        fetch("http://localhost:8111/admin/configurationdata/" + id,
+            {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json', 'Authorisation': 'token'},
+                body: JSON.stringify(updateConfigDataAttributes)
+            })
+
+    }
+
+    function DeleteConfigurationData() {
+
+        var id = (document.getElementById('id') as HTMLInputElement).value;
+
+        let deleteConfigDataAttributes = {
+            id: (document.getElementById('id') as HTMLInputElement).value
+        }
+
+        fetch("http://localhost:8111/admin/configurationdata/" + id,
+            {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json', 'Authorisation': 'token'},
+                body: JSON.stringify(deleteConfigDataAttributes)
+            })
+    }
+
 
 }

@@ -38,7 +38,7 @@ return (
         <About />
     </Route>
 
-    <Route path="viewConfigData">
+    <Route path="/viewConfigData">
         <ViewConfigData/>
     </Route>
 

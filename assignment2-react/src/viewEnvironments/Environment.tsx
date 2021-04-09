@@ -34,10 +34,10 @@ function EnvironmentDetails(environment: any) {
 	return (
 		<div>
 			<h1>{environment.shortName}</h1>
-			<div>
-				{environment.longName}
-			</div>
+			<p>
+				<span>{environment.longName}</span>
 
+			</p>
 
 		</div>
 	)

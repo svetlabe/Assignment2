@@ -87,11 +87,11 @@ export default function ViewConfigData() {
 
     function renderTableData() {
         return configData.map((configData, index) => {
+
             return (
 
                 <tr onClick={() => onClick(configData)} key={configData.id}>
                     <td>{configData.id}</td>
-
                     <td>{configData.name}</td>
                     <td>{configData.version}</td>
                     <td>{configData.date}</td>

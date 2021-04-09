@@ -1,4 +1,4 @@
-body {
+/*body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,47 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}*/
+body {
+  margin: 2px;
+  font-family: 'segoe ui', sans-serif;
 }
+
+.blockLink {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  background-color: teal;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  width: 300px;
+  height: 50px;
+  padding: 20px;
+  margin: 5px;
+}
+
+.blockLink:hover {
+  background-color: coral;
+}
+
+label {
+  width: 100px;
+  float: left;
+}
+
+input, textarea {
+  width: 200px;
+}
+
+.rating {
+  display: inline-block;
+  width: 2em;
+  margin: 0px 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  background-color: coral;
+  color: white;
+}
+

@@ -23,6 +23,7 @@ return (
         <Route exact path="/" >
           <Home />
         </Route>
+
     <Route path="/environments">
         <Environments />
     </Route>
@@ -32,7 +33,7 @@ return (
     <Route path="/about">
         <About />
     </Route>
-    <ViewConfigData/>
+    {/*<ViewConfigData/>*/}
     <Route path="*" >
         <PageNotFound />
     </Route>

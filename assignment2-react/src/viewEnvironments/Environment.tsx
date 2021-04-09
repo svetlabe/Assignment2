@@ -5,11 +5,11 @@ import { RestClient } from "../RestClient"
 export default function Environment() {
 	
 	let { id } : any = useParams();
-	let [environment, setEnviroment] = React.useState<any>(undefined)
+	let [environment, setEnvironment] = React.useState<any>(undefined)
 
 	React.useEffect(() => {
 		RestClient.getEnvironment(id)
-		          .then(environment => setEnviroment(environment))
+		          .then(environment => setEnvironment(environment))
 				  .catch((err: any) => alert(err))
 	}, [])
 
@@ -17,7 +17,9 @@ export default function Environment() {
 		return (
 			<React.Fragment>
 				<EnvironmentDetails {...environment} />
-				<Configurations {...environment} />
+				<div className="configDataTable">
+					{/*{configDataToTable()}*/}
+				</div>
 			</React.Fragment>
 		)
 	} else {
@@ -28,31 +30,44 @@ export default function Environment() {
 function EnvironmentDetails(environment: any) {
 	return (
 		<div>
-			<h1>{environment.id}</h1>
+			<h1>{environment.shortname}</h1>
 			<li>
 
 			</li>
 		</div>
 	)
 }
+/*
 
-function Configurations(environment: any) {
+function configDataToTable() {
 
 	return (
-		<React.Fragment>
-
-
-		</React.Fragment>
+		<div>
+			<h2>Configuration Data</h2>
+			<p><h3>Click tablerow to edit</h3></p>
+			<table id="configDataTable">
+				<tbody>
+				{renderTableHeader()}
+				{renderTableData()}
+				</tbody>
+			</table>
+		</div>
 	)
+
 }
+function renderTableData() {
+	return configdata.map((environment, index) => {
+		return (
 
-function ConfigurationsMarkup() {
-	return (
-	<React.Fragment>
+			<tr onClick={() => onClick(configData)} key={configData.id}>
+				<td>{configData.id}</td>
+				<td>{configData.name}</td>
+				<td>{configData.version}</td>
+				<td>{configData.date}</td>
+			</tr>
 
+		)
+	})
 
-
-	</React.Fragment>
-	);
 }
-
+*/

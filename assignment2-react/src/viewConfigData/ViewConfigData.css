@@ -3,6 +3,13 @@ div.viewConfigData{
     width: 100%
 
 }
+div.requestLogin {
+    float: left;
+    top: 3%;
+    width: 45%;
+    height: 40%;
+    margin-left: 1%;
+}
 div.addConfigurationData{
     float: left;
     top: 3%;

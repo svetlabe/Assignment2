@@ -9,6 +9,8 @@ import PageNotFound from './PageNotFound'
 
 //import Login from './login';
 import ViewConfigData from './viewConfigData/ViewConfigData';
+import Environments from "./viewEnvironments/Environments";
+import Environment from "./viewEnvironments/Environment";
 //import SecureConfigUpdate from "./SecureConfigUpdate/SecureConfigUpdate";
 
 
@@ -21,12 +23,20 @@ return (
         <Route exact path="/" >
           <Home />
         </Route>
+    <Route path="/environments">
+        <Environments />
+    </Route>
+    <Route path="/environments/:id">
+        <Environment />
+    </Route>
+    <Route path="/about">
+        <About />
+    </Route>
+    <ViewConfigData/>
+    <Route path="*" >
+        <PageNotFound />
+    </Route>
 
-
-
-
-
-<ViewConfigData/>
 
 </Switch>
 </div>

@@ -166,7 +166,7 @@ function AddConfigurationData() {
 
     fetch("http://localhost:8111/admin/configurationdata" ,
         { method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' , 'Authorisation' : 'token' },
             body: JSON.stringify(addConfigDataAttributes)})
 
 }

@@ -8,6 +8,7 @@ import ViewConfigData from './viewConfigData/ViewConfigData';
 import Environments from "./viewEnvironments/Environments";
 import Environment from "./viewEnvironments/Environment";
 import Login from "./login";
+import EditEnvironments2 from "./viewEnvironments/EditEnvironment2";
 
 
 
@@ -23,6 +24,10 @@ return (
 
         <Route path="/environments">
             <Environments />
+        </Route>
+
+        <Route path="/addenvironment">
+            <EditEnvironments2 />
         </Route>
 
         <Route path="/environment/:id">

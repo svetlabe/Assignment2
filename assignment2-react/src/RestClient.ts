@@ -14,5 +14,17 @@ export class RestClient {
         return await response.json()
     }
 
+    static addEnvironment(environment: any) : Promise<any> {
+        const url = `${RestClient.baseUrl}/admin/environments`
+        return window.fetch(
+            url,
+            {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorisation': 'token' },
+                body: JSON.stringify(environment)
+            }
+        )
+    }
+
 
 }

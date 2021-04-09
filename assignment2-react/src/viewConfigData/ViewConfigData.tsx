@@ -9,6 +9,7 @@ export default function ViewConfigData() {
 
     let [configData, setConfigData] = React.useState<Array<any>>([])
 
+
     React.useEffect(() => {
         fetch("http://localhost:8111/admin/configurationdata")
             .then(response => response.json())
@@ -52,6 +53,7 @@ export default function ViewConfigData() {
                         <label htmlFor='id'>Id:</label>
                         <input id='id' type='number' min={1}/>
                     </p>
+
                     <button>Delete</button>
 
                 </form>
@@ -219,12 +221,13 @@ export default function ViewConfigData() {
                 let RequestLogin= {
                     username: (document.getElementById('Username') as HTMLInputElement).value,
                     password: (document.getElementById('Password') as HTMLInputElement).value,
+                    token: (document.getElementById('token') as HTMLInputElement).value,
                 }
 
                 fetch("http://localhost:8111/admin/login",
                     {
                         method: 'POST',
-                        headers: {'Content-Type': 'application/json', 'Authorisation': 'token'},
+                        headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify(RequestLogin)
                     })
 

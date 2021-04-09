@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Menu.css";
 
-export default function Login() {
+function Login() {
+
     return (
         <div>
             <h1>Login</h1>
@@ -18,25 +19,5 @@ export default function Login() {
             </p>
         </div>
     )
-
-
-    function RequestLogin() {
-
-            let RequestLogin= {
-                username: (document.getElementById('Username') as HTMLInputElement).value,
-                password: (document.getElementById('Password') as HTMLInputElement).value,
-            }
-
-            fetch("http://localhost:8111/admin/login",
-                {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json', 'Authorisation': 'token'},
-                    body: JSON.stringify(RequestLogin)
-                })
-
-        }
-
-
-
-
 }
+export default Login;

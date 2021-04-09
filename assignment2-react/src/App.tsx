@@ -9,24 +9,43 @@ import PageNotFound from './PageNotFound'
 
 //import Login from './login';
 import ViewConfigData from './viewConfigData/ViewConfigData';
+import Environments from "./viewEnvironments/Environments";
+import Environment from "./viewEnvironments/Environment";
+import Login from "./login";
 //import SecureConfigUpdate from "./SecureConfigUpdate/SecureConfigUpdate";
 
 
 function App(){
 return (
 <div>
-
 <Menu/>
+
 <Switch>
         <Route exact path="/" >
           <Home />
         </Route>
 
+    <Route path="/environments">
+        <Environments />
+    </Route>
+    <Route path="/environments/:id">
+        <Environment />
+    </Route>
+    <Route path="/login">
+        <Login />
+    </Route>
+    <Route path="/about">
+        <About />
+    </Route>
 
+    <Route path="viewConfigData">
+        <ViewConfigData/>
+    </Route>
 
+    <Route path="*" >
+        <PageNotFound />
+    </Route>
 
-
-<ViewConfigData/>
 
 </Switch>
 </div>

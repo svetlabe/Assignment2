@@ -16,7 +16,11 @@ export default function Environment() {
 	if (environment) {
 		return (
 			<React.Fragment>
-				<EnvironmentDetails {...environment} />
+				<div>
+					<h1>{environment.shortName}</h1>
+				</div>
+
+				{/*<EnvironmentDetails {...environment} />*/}
 				<div className="configDataTable">
 					{/*{configDataToTable()}*/}
 				</div>
@@ -30,7 +34,7 @@ export default function Environment() {
 function EnvironmentDetails(environment: any) {
 	return (
 		<div>
-			<h1>{environment.shortname}</h1>
+			<h1>{environment.id}</h1>
 			<li>
 
 			</li>

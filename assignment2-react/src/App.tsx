@@ -28,7 +28,7 @@ return (
     <Route path="/environments">
         <Environments />
     </Route>
-    <Route path="/environments/:id">
+    <Route path="/environment/:id">
         <Environment />
     </Route>
     <Route path="/login">
@@ -41,6 +41,7 @@ return (
     <Route path="viewConfigData">
         <ViewConfigData/>
     </Route>
+
 
     <Route path="*" >
         <PageNotFound />

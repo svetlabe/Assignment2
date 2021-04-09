@@ -5,7 +5,7 @@ div.viewConfigData{
 }
 div.addConfigurationData{
     float: left;
-    top: 1%;
+    top: 3%;
     width: 45%;
     height: 40%;
     margin-left: 1%;
@@ -13,7 +13,7 @@ div.addConfigurationData{
 }
 div.configDataTable{
     position: absolute;
-    top: 5%;
+    top: 8%;
     left: 30%;
     width: 40%;
     height: 85%;

@@ -18,8 +18,8 @@ import Login from "./login";
 function App(){
 return (
 <div>
-
 <Menu/>
+
 <Switch>
         <Route exact path="/" >
           <Home />
@@ -37,7 +37,11 @@ return (
     <Route path="/about">
         <About />
     </Route>
-    {/*<ViewConfigData/>*/}
+
+    <Route path="viewConfigData">
+        <ViewConfigData/>
+    </Route>
+
     <Route path="*" >
         <PageNotFound />
     </Route>

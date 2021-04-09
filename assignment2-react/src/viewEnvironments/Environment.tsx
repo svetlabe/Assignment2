@@ -14,15 +14,14 @@ export default function Environment() {
 	}, [])
 
 	if (environment) {
+		let configData = environment.configurationData;
 		return (
 			<React.Fragment>
-				<div>
-					<h1>{environment.shortName}</h1>
-				</div>
 
-				{/*<EnvironmentDetails {...environment} />*/}
+
+				<EnvironmentDetails {...environment} />
 				<div className="configDataTable">
-					{/*{configDataToTable()}*/}
+					{configDataToTable(configData)}
 				</div>
 			</React.Fragment>
 		)
@@ -34,36 +33,37 @@ export default function Environment() {
 function EnvironmentDetails(environment: any) {
 	return (
 		<div>
-			<h1>{environment.id}</h1>
-			<li>
+			<h1>{environment.shortName}</h1>
+			<div>
+				{environment.longName}
+			</div>
 
-			</li>
+
 		</div>
 	)
 }
-/*
 
-function configDataToTable() {
+
+function configDataToTable(configurationData : any) {
 
 	return (
 		<div>
 			<h2>Configuration Data</h2>
-			<p><h3>Click tablerow to edit</h3></p>
+			<p><h3></h3></p>
 			<table id="configDataTable">
 				<tbody>
-				{renderTableHeader()}
-				{renderTableData()}
+				{renderTableData(configurationData)}
 				</tbody>
 			</table>
 		</div>
 	)
 
 }
-function renderTableData() {
-	return configdata.map((environment, index) => {
+function renderTableData(configData : any) {
+	return configData.map((configData:any, index: any) => {
 		return (
 
-			<tr onClick={() => onClick(configData)} key={configData.id}>
+			<tr >
 				<td>{configData.id}</td>
 				<td>{configData.name}</td>
 				<td>{configData.version}</td>
@@ -74,4 +74,4 @@ function renderTableData() {
 	})
 
 }
-*/
+

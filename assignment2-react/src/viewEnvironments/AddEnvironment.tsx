@@ -19,7 +19,7 @@ export default function AddEnvironment2(){
         const handleSubmit = (e: any) => {
             e.preventDefault();
             let environmentToAdd = {
-                shortName: (document.getElementById('shortName') as HTMLInputElement).value,
+                shortName: (document.getElementById('shortName') as HTMLInputElement).value.toUpperCase(),
                 longName: (document.getElementById('longName') as HTMLInputElement).value,
             }
             RestClient.addEnvironment(environmentToAdd)
@@ -38,7 +38,6 @@ export default function AddEnvironment2(){
                         <label htmlFor='shortName'>Short Name</label>
                         <input type='text' id='shortName'/>
                     </p>
-
                     <p>
                         <label htmlFor='longName'>Description</label>
                         <input type='text' id='longName'/>

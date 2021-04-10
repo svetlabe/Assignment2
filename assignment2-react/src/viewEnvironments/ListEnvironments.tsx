@@ -14,12 +14,14 @@ export default function ListEnvironments(){
         <>
             <div className="listEnvironments">
                 {environments.map((environment:any, i:number) => (
-                <div >
-                    <h2>{environment.shortName}</h2>
-                    <p> Description: {environment.longName}</p>
-                </div>
+                <fieldset className="environment">
+                    <legend>{environment.shortName}</legend>
+                    <div> <b>ID:</b> {environment.id}</div>
+                    <div> <b> Description:</b> {environment.longName}</div>
+                </fieldset>
                     ))}
             </div>
+
         </>
     );
 }

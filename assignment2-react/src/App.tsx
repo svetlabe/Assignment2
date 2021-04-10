@@ -8,7 +8,6 @@ import ViewConfigData from './viewConfigData/ViewConfigData';
 import Environments from "./viewEnvironments/Environments";
 import Environment from "./viewEnvironments/Environment";
 import Login from "./login";
-import EditEnvironments2 from "./viewEnvironments/EditEnvironment2";
 import EditEnvironments3 from "./viewEnvironments/EditEnvironments3";
 
 

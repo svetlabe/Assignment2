@@ -8,7 +8,6 @@ export default function EditEnvironments3(){
         <div>
             <AddEnvironment2/>
             <ListEnvironments/>
-            <SearchEnvironment/>
 
         </div>
     )

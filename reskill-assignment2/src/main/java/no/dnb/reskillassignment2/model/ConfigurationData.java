@@ -2,11 +2,17 @@
 package no.dnb.reskillassignment2.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@AllArgsConstructor
 
 @Data
 @Entity
@@ -20,10 +26,12 @@ public class ConfigurationData {
     private String version;
     private String date;
 
-    @ManyToOne
+
+    @ManyToOne()
     @JoinColumn(name="ENVIRONMENT_ID")
     @JsonBackReference
     private Environment environment;
+
 
 
     public ConfigurationData() {
@@ -34,11 +42,12 @@ public class ConfigurationData {
         this.name = name;
         this.version = version;
         this.date = date;
+
     }
 
     public ConfigurationData(String name, String version, String date) {
         this(-1, name, version, date);
     }
 
-    //Koble sammen med environment - bruk Andys review pattern.
+
 }

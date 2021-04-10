@@ -92,7 +92,7 @@ import java.util.Collection;
     }
 
     //add environment
-    @PostMapping(
+    @PutMapping(
             value="/environments",
             consumes={"application/json"},  // if via html form: "application/x-www-form-urlencoded"},
             produces={"application/json"})

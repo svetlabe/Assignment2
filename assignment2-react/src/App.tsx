@@ -3,13 +3,13 @@ import { Switch, Route } from 'react-router-dom';
 import Menu from './Menu';
 import Home from './Home'
 import About from './About';
-import Contact from './Contact';
 import PageNotFound from './PageNotFound'
 import ViewConfigData from './viewConfigData/ViewConfigData';
 import Environments from "./viewEnvironments/Environments";
 import Environment from "./viewEnvironments/Environment";
 import Login from "./login";
-//import SecureConfigUpdate from "./SecureConfigUpdate/SecureConfigUpdate";
+import EditEnvironments3 from "./viewEnvironments/EditEnvironments3";
+
 
 
 function App(){
@@ -22,27 +22,33 @@ return (
           <Home />
         </Route>
 
-    <Route path="/environments">
-        <Environments />
-    </Route>
-    <Route path="/environment/:id">
-        <Environment />
-    </Route>
-    <Route path="/login">
-        <Login />
-    </Route>
-    <Route path="/about">
-        <About />
-    </Route>
+        <Route path="/environments">
+            <Environments />
+        </Route>
 
-    <Route path="/viewConfigData">
-        <ViewConfigData/>
-    </Route>
+        <Route path="/addenvironment">
+            <EditEnvironments3 />
+        </Route>
 
+        <Route path="/environment/:id">
+            <Environment/>
+        </Route>
 
-    <Route path="*" >
-        <PageNotFound />
-    </Route>
+        <Route path="/login">
+            <Login />
+        </Route>
+
+        <Route path="/about">
+            <About />
+        </Route>
+
+        <Route path="/viewConfigData">
+            <ViewConfigData/>
+        </Route>
+
+        <Route path="*" >
+            <PageNotFound />
+        </Route>
 
 
 </Switch>

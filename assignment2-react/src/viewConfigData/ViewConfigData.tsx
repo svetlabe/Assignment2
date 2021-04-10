@@ -3,11 +3,18 @@ import React from "react";
 import './ViewConfigData.css'
 
 import { render } from "@testing-library/react";
+import {RestClient} from "../RestClient";
+
 
 
 export default function ViewConfigData() {
 
+    let [environments, setEnvironments] = React.useState<Array<any>>([])
     let [configData, setConfigData] = React.useState<Array<any>>([])
+    React.useEffect(() => {
+            RestClient.getEnvironments()
+                .then(environments => setEnvironments(environments))},
+        [])
 
 
     React.useEffect(() => {
@@ -30,6 +37,10 @@ export default function ViewConfigData() {
                         <label htmlFor='name'>Name</label>
                         <input id='name' type='text'/>
                     </p>
+                    {/*<p>
+                        <label htmlFor='environment'>Environment</label>
+                        <input id='environment' type='number' min={1} max={environments.length}/>
+                    </p>*/}
                     <p>
                         <label htmlFor='version'>Version</label>
                         <input id='version' type='text' min={1}/>
@@ -104,10 +115,12 @@ export default function ViewConfigData() {
 
     function renderTableData() {
         return configData.map((configData, index) => {
+
             return (
 
                 <tr onClick={() => onClick(configData)} key={configData.id}>
                     <td>{configData.id}</td>
+                    {/*<td>{configData.environment}</td>*/}
                     <td>{configData.name}</td>
                     <td>{configData.version}</td>
                     <td>{configData.date}</td>
@@ -119,7 +132,7 @@ export default function ViewConfigData() {
     }
 
     function renderTableHeader() {
-        const test = ["id", "name", "version", "date changed"]
+        const test = ["id","name", "version", "date changed"]
         return test.map((key, index) => {
             return <th>{key.toUpperCase()} </th>
         })
@@ -167,6 +180,7 @@ export default function ViewConfigData() {
 
         let addConfigDataAttributes = {
             name: (document.getElementById('name') as HTMLInputElement).value,
+            environment:(document.getElementById('environment') as HTMLInputElement).value,
             version: (document.getElementById('version') as HTMLInputElement).value,
             date: (document.getElementById('date') as HTMLInputElement).value
         }

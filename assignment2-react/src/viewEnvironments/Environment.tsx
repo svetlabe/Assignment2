@@ -17,6 +17,7 @@ export default function Environment() {
 		let configData = environment.configurationData;
 		return (
 			<React.Fragment>
+
 				<EnvironmentDetails {...environment} />
 				<div className="configDataTable">
 					{configDataToTable(configData)}
@@ -32,10 +33,8 @@ function EnvironmentDetails(environment: any) {
 	return (
 		<div>
 			<h1>{environment.shortName}</h1>
-			<div>
-				{environment.longName}
-			</div>
-
+			<div> <b>ID:</b> {environment.id}</div>
+			<div> <b> Description:</b> {environment.longName}</div>
 
 		</div>
 	)

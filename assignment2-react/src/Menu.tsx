@@ -11,7 +11,7 @@ function Menu() {
             <NavLink to="/addenvironment">Add Environment</NavLink>&nbsp;|&nbsp;*/}
             <NavLink to ="/environments">Environments</NavLink>&nbsp;|&nbsp;
             <NavLink to="/login"> Login (for administrators)</NavLink>&nbsp;|&nbsp;
-            <NavLink to="/dashboard"> Dashboard </NavLink>&nbsp;|&nbsp;
+            {/*<NavLink to="/dashboard"> Dashboard </NavLink>&nbsp;|&nbsp;*/}
             <NavLink to="/about"> About </NavLink>&nbsp;|&nbsp;
 
 

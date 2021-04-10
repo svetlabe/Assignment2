@@ -5,9 +5,6 @@ import Home from './Home'
 import About from './About';
 import Contact from './Contact';
 import PageNotFound from './PageNotFound'
-
-
-//import Login from './login';
 import ViewConfigData from './viewConfigData/ViewConfigData';
 import Environments from "./viewEnvironments/Environments";
 import Environment from "./viewEnvironments/Environment";

@@ -17,8 +17,6 @@ export default function Environment() {
 		let configData = environment.configurationData;
 		return (
 			<React.Fragment>
-
-
 				<EnvironmentDetails {...environment} />
 				<div className="configDataTable">
 					{configDataToTable(configData)}

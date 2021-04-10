@@ -6,7 +6,7 @@ function Home() {
     return (
         <div className="container">
             <img src={splash} alt="DNBs Mars database of artifacs"/>
-            <div className="centered">Repository</div>
+            <div className="centered">Welcome to DNBs Mars Mission computer repository</div>
         </div>
     )
 }

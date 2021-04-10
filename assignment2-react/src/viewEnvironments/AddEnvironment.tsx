@@ -42,6 +42,7 @@ export default function AddEnvironment2(){
                         <label htmlFor='longName'>Description</label>
                         <input type='text' id='longName'/>
                     </p>
+
                     <p>
                         <label>&nbsp;</label> {/* Placeholder */}
                         <button>Add environment</button>

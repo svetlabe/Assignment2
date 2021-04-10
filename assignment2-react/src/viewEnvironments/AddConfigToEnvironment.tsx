@@ -43,7 +43,7 @@ function AdddConfiguration(environment: any) {
     }
 
     return (
-        <div>
+        <div className="addConfig">
             <h2>Add configuration details</h2>
             <form onSubmit={handleSubmit}>
                 <p>

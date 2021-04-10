@@ -3,6 +3,9 @@ import { NavLink } from "react-router-dom";
 import "./Menu.css";
 
 function Login() {
+    const handleLogin = () => {
+
+    }
 
     return (
         <div>
@@ -12,7 +15,13 @@ function Login() {
             </p>
             <p>
                 Enter username and password
+
             </p>
+
+            <form action="/dashboard">
+                <input type="submit" value="I am admin" />
+            </form>
+
 
             <p>
                 &copy; Team

@@ -38,10 +38,15 @@ input, textarea {
 
   overflow: auto;
   width: 25%;
-  margin: 0px;
+  margin: 20px;
+
 
   background-color: white;
   color: #007272;
+}
+.addConfig{
+  padding:20px;
+
 }
 
 

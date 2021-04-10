@@ -3,13 +3,16 @@ package no.dnb.reskillassignment2.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@AllArgsConstructor
 
 @Data
 @Entity
@@ -24,11 +27,9 @@ public class ConfigurationData {
     private String date;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne()
     @JoinColumn(name="ENVIRONMENT_ID")
-    //@JsonBackReference
-    @JsonIgnore
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonBackReference
     private Environment environment;
 
 

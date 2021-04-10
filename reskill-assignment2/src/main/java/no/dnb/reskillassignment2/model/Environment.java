@@ -1,12 +1,17 @@
 package no.dnb.reskillassignment2.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="ENVIRONMENTS")
 public class Environment {
@@ -23,22 +28,13 @@ public class Environment {
     private List<ConfigurationData> configurationData;
 
 
-
-    public Environment() {
-    }
-
-    public Environment(String shortName, String longName) {
-        this(-1, shortName, longName);
-    }
-
-    public Environment(long id, String shortName, String longName) {
-        this.id = id;
-        this.shortName = shortName;
-        this.longName = longName;
-    }
-
     // Lage en liste over alle environments (destinations - se review)
     // Koble referanse mot configuration data
     // tidsstempel
+    public Environment(String shortName, String longName){
+        this.shortName = shortName;
+        this.longName = longName;
+        configurationData = new ArrayList<>();
+    }
 
 }

@@ -2,13 +2,19 @@ package no.dnb.reskillassignment2.datalayer;
 
 import no.dnb.reskillassignment2.model.Administrator;
 import no.dnb.reskillassignment2.model.ConfigurationData;
+import no.dnb.reskillassignment2.model.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.Collection;
+import java.util.Optional;
 
 @Repository
 @Transactional
@@ -63,4 +69,6 @@ public class ConfigurationDataRepoDB implements ConfigurationDataRepository{
         }
 
     }
+
+
 }

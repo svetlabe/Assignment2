@@ -11,10 +11,7 @@ export default function AddEnvironment2(){
     return (
         <React.Fragment>
             {AddElement()}
-            <div>
-              Add new Environment
 
-            </div>
         </React.Fragment>
     );
 

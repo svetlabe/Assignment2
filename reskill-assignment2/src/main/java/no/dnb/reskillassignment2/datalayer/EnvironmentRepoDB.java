@@ -52,4 +52,6 @@ public class EnvironmentRepoDB implements EnvironmentsRepository{
         Environment e = entityManager.find(Environment.class, id);
         entityManager.remove(e);
     }
+
+
 }

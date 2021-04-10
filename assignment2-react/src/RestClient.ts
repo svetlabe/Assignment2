@@ -20,7 +20,7 @@ export class RestClient {
             url,
             {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json', 'Authorisation': 'token' },
+                headers: { 'Content-Type': 'application/json', 'Authorisation': 'ok' },
                 body: JSON.stringify(environment)
             }
         )

@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Menu from './Menu';
 import Home from './Home'
 import About from './About';
-import PageNotFound from './PageNotFound'
+import PageNotFound from './pageNotFound/PageNotFound'
 import ViewConfigData from './viewConfigData/ViewConfigData';
 import Environments from "./viewEnvironments/Environments";
 import Environment from "./viewEnvironments/Environment";

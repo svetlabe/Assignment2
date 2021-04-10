@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.Collection;
+import java.util.Optional;
 
 
 @RestController
@@ -133,7 +134,7 @@ import java.util.Collection;
             return ResponseEntity.ok().build();
     }
 
-    //add configurationData
+   //add configurationData
     @PostMapping(
             value="/configurationdata",
             consumes={"application/json"},  // if via html form: "application/x-www-form-urlencoded"},
@@ -152,6 +153,28 @@ import java.util.Collection;
         else
             return ResponseEntity.ok().build();
     }
+
+
+    /*@PutMapping(
+            value="/configurationdata",
+            consumes={"application/json"},
+            produces={"application/json"}
+    )
+    public ResponseEntity<Void> addConfiguration(@PathVariable long environmentId,
+                                                        @RequestBody ConfigurationData configuration,
+                                                        @RequestHeader("Authorisation") String token) {
+        Environment environment = environmentsRepository.getEnvironmentById(environmentId);
+        if (environment == null) {
+            return ResponseEntity.notFound().build();
+        }
+        else {
+            configuration.setEnvironment(environment);
+            configurationDataRepository.insertConfiguration(configuration);
+            return ResponseEntity.ok().build();
+        }
+    }
+
+     */
 
 
 

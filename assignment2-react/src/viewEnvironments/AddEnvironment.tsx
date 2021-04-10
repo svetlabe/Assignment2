@@ -47,7 +47,8 @@ export default function AddEnvironment2(){
                         <button>Add environment</button>
                     </p>
                 </form>
-            </div>)
+            </div>
+        )
 
     }
 }

@@ -155,12 +155,12 @@ import java.util.Optional;
     }
 
 
-    /*@PutMapping(
-            value="/configurationdata",
+    @PutMapping(
+            value="/addConfig/{environmentId}",
             consumes={"application/json"},
             produces={"application/json"}
     )
-    public ResponseEntity<Void> addConfiguration(@PathVariable long environmentId,
+    public ResponseEntity<Void> addConfigurationForEnvironment(@PathVariable long environmentId,
                                                         @RequestBody ConfigurationData configuration,
                                                         @RequestHeader("Authorisation") String token) {
         Environment environment = environmentsRepository.getEnvironmentById(environmentId);
@@ -174,7 +174,6 @@ import java.util.Optional;
         }
     }
 
-     */
 
 
 

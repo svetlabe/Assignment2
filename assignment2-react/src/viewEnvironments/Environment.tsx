@@ -1,6 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { RestClient } from "../RestClient"
+import AddConfigurationToEnvironment from "./AddConfigToEnvironment";
+
+
 
 export default function Environment() {
 	
@@ -19,6 +22,7 @@ export default function Environment() {
 			<React.Fragment>
 
 				<EnvironmentDetails {...environment} />
+				<AddConfigurationToEnvironment/>
 				<div className="configDataTable">
 					{configDataToTable(configData)}
 				</div>
@@ -31,10 +35,13 @@ export default function Environment() {
 
 function EnvironmentDetails(environment: any) {
 	return (
-		<div>
+		<div className= "textForEnv">
 			<h1>{environment.shortName}</h1>
-			<div> <b>ID:</b> {environment.id}</div>
-			<div> <b> Description:</b> {environment.longName}</div>
+			<div className= "singleEnv" >
+				<div> <b>ID:</b> {environment.id}</div>
+				<div> <b> Description:</b> {environment.longName}</div>
+			</div>
+
 
 		</div>
 	)
@@ -49,6 +56,7 @@ function configDataToTable(configurationData : any) {
 			<p><h3></h3></p>
 			<table id="configDataTable">
 				<tbody>
+				{renderTableHeader()}
 				{renderTableData(configurationData)}
 				</tbody>
 			</table>
@@ -70,5 +78,12 @@ function renderTableData(configData : any) {
 		)
 	})
 
+
+}
+function renderTableHeader() {
+	const test = ["id","name", "version", "date changed"]
+	return test.map((key, index) => {
+		return <th>{key.toUpperCase()} </th>
+	})
 }
 

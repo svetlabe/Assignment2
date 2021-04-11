@@ -25,6 +25,15 @@ export class RestClient {
             }
         )
     }
-
-
+    static addConfigurationForEnv(id: number, config: any) : Promise<any> {
+        const url = `${RestClient.baseUrl}/admin/addConfig/${id}`
+        return window.fetch(
+            url,
+            {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' ,'Authorisation': 'token' },
+                body: JSON.stringify(config)
+            }
+        )
+    }
 }

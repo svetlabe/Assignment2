@@ -1,11 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import {Link, NavLink, useParams} from "react-router-dom";
 import { RestClient } from "../RestClient"
 import "./ListEnvironments.css"
+import AddConfigurationToEnvironment from "./AddConfigToEnvironment";
 
 
 
-export default function Environment() {
+export default function AdminEnvironment() {
 	
 	let { id } : any = useParams();
 	let [environment, setEnvironment] = React.useState<any>(undefined)
@@ -20,11 +21,14 @@ export default function Environment() {
 		let configData = environment.configurationData;
 		return (
 			<React.Fragment>
+				<p><Link to={"/dashboard"}> BACK TO DASHBOARD </Link></p>
 
 				<EnvironmentDetails {...environment} />
-				{/*<AddConfigurationToEnvironment/>*/}
+				<AddConfigurationToEnvironment/>
 				<div className="configDataTable">
 					{configDataToTable(configData)}
+
+
 				</div>
 			</React.Fragment>
 		)

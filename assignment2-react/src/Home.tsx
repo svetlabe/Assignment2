@@ -7,8 +7,8 @@ import splash from './baseball-home-plate.png';   // Tell Webpack this code file
 function Home() {
     return (
         <div className="container">
-            <img src={splash} alt="DNBs Mars database of artifacs"/>
-            <div className="centered">Welcome to DNBs Mars Mission computer repository</div>
+            <img src={splash} className="home"/>
+            <div className="centered">Repository</div>
         </div>
     )
 }

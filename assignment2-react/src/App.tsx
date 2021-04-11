@@ -3,12 +3,15 @@ import { Switch, Route } from 'react-router-dom';
 import Menu from './Menu';
 import Home from './Home'
 import About from './About';
-import PageNotFound from './PageNotFound'
+import PageNotFound from './pageNotFound/PageNotFound'
 import ViewConfigData from './viewConfigData/ViewConfigData';
 import Environments from "./viewEnvironments/Environments";
 import Environment from "./viewEnvironments/Environment";
 import Login from "./login";
 import EditEnvironments3 from "./viewEnvironments/EditEnvironments3";
+import Dashboard from "./Dashboard/Dashboard";
+import AdminEnvironments from "./viewEnvironments/AdminEnvironments";
+import AdminEnvironment from "./viewEnvironments/AdminEnvironment";
 
 
 
@@ -34,8 +37,18 @@ return (
             <Environment/>
         </Route>
 
+        <Route path="/adminenvironments">
+            <AdminEnvironments />
+        </Route>
+        <Route path="/adminenvironment/:id">
+            <AdminEnvironment/>
+        </Route>
+
         <Route path="/login">
             <Login />
+        </Route>
+        <Route path="/dashboard">
+            <Dashboard />
         </Route>
 
         <Route path="/about">

@@ -1,16 +1,4 @@
-/*body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}*/
 body {
   margin: 2px;
   font-family: 'segoe ui', sans-serif;
@@ -43,14 +31,22 @@ input, textarea {
   width: 200px;
 }
 
-.rating {
-  display: inline-block;
-  width: 2em;
-  margin: 0px 5px;
-  text-align: center;
-  font-weight: bold;
-  font-size: large;
-  background-color: coral;
-  color: white;
+.textForEnv{
+  font-size:1.2em ;
 }
+.singleEnv{
+
+  overflow: auto;
+  width: 25%;
+  margin: 20px;
+
+
+  background-color: white;
+  color: #007272;
+}
+.addConfig{
+  padding:20px;
+
+}
+
 

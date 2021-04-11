@@ -18,7 +18,7 @@ public class Environment {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id = -1;
-    @Column (name = "shortname")
+    @Column (name = "shortname", unique = true)
     private String shortName;
     @Column (name = "longname")
     private String longName;

@@ -98,8 +98,13 @@ import java.util.Optional;
             consumes={"application/json"},  // if via html form: "application/x-www-form-urlencoded"},
             produces={"application/json"})
     public void insertEnvironment(@RequestBody Environment environment,
-                                  @RequestHeader("Authorisation") String token) {
-        environmentsRepository.insertEnvironment(environment);
+                                  @RequestHeader("Authorisation") String token) throws Exception {
+
+          try{
+              environmentsRepository.insertEnvironment(environment);
+          } catch(Exception e){}
+
+
     }
 
 

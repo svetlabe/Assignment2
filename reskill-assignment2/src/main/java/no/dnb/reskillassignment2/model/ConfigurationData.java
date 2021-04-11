@@ -28,7 +28,7 @@ public class ConfigurationData {
 
 
     @ManyToOne()
-    @JoinColumn(name="ENVIRONMENT_ID")
+    @JoinColumn(name="ENVIRONMENT_ID", nullable = false)
     @JsonBackReference
     private Environment environment;
 

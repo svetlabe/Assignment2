@@ -29,7 +29,9 @@ export default function ViewConfigData() {
     return (
 
         <div className="viewConfigData">
-            <p><Link to={"/dashboard"}> BACK TO DASHBOARD </Link></p>
+            <form action="/dashboard">
+                <input type="submit" value="BACK TO DASHBOARD" />
+            </form>
 
 
             <div className="addConfigurationData">

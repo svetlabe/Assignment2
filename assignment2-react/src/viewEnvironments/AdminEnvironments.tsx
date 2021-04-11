@@ -17,7 +17,9 @@ function AdminEnvironments() {
 
     return (
         <div>
-            <p><Link to={"/dashboard"}> BACK TO DASHBOARD </Link></p>
+            <form action="/dashboard">
+                <input type="submit" value="BACK TO DASHBOARD" />
+            </form>
             <h1 className= "headder">Here you can find registered environments </h1>
     {environments.map((e: any, i: number) =>
         <Link key={i} className='blockLink' to={`adminenvironment/${e.id}`}>{e.shortName} </Link>

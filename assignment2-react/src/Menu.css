@@ -25,5 +25,6 @@ nav a:hover {
     color: teal;
     background-color: white;
     text-decoration: none;
+    font-size: 1em;
 }
 

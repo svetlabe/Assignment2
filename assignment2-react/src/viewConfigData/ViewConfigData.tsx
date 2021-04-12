@@ -12,6 +12,7 @@ export default function ViewConfigData() {
 
     let [environments, setEnvironments] = React.useState<Array<any>>([])
     let [configData, setConfigData] = React.useState<Array<any>>([])
+
     React.useEffect(() => {
             RestClient.getEnvironments()
                 .then(environments => setEnvironments(environments))},
@@ -230,6 +231,7 @@ export default function ViewConfigData() {
       function RequestLogin() {
 
                 let RequestLogin= {
+                    id: (document.getElementById('UserId') as HTMLInputElement).value,
                     username: (document.getElementById('Username') as HTMLInputElement).value,
                     password: (document.getElementById('Password') as HTMLInputElement).value,
                     token: (document.getElementById('token') as HTMLInputElement).value,

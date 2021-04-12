@@ -4,6 +4,9 @@
     position: relative;
     color: white;
     padding: 0px;
+    font-size: 1em;
+    top: 35%;
+
 }
 
 div.centered {
@@ -22,3 +25,4 @@ img.home {
     width: 100%;
 
 }
+

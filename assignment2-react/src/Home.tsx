@@ -8,7 +8,7 @@ function Home() {
     return (
         <div className="container">
             <img src={splash} className="home"/>
-            <div className="centered">Repository</div>
+            <div className="centered">DNBs journey to  Mars repository</div>
         </div>
     )
 }

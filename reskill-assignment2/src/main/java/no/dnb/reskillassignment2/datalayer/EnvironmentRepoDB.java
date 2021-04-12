@@ -1,6 +1,7 @@
 package no.dnb.reskillassignment2.datalayer;
 
 import no.dnb.reskillassignment2.model.Environment;
+import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +32,7 @@ public class EnvironmentRepoDB implements EnvironmentsRepository{
 
     @Override
     @Transactional
-    public void insertEnvironment(Environment environment) {
+    public void insertEnvironment(Environment environment) throws JdbcSQLIntegrityConstraintViolationException {
         entityManager.persist(environment);
 
     }
@@ -52,6 +53,15 @@ public class EnvironmentRepoDB implements EnvironmentsRepository{
         Environment e = entityManager.find(Environment.class, id);
         entityManager.remove(e);
     }
+
+    @Override
+    public Environment getEnvironmentByShortName(String shortname){
+        Environment environment = entityManager.createQuery(
+                "SELECT e from Environment e WHERE e.shortName = :shortName", Environment.class).
+                setParameter("shortName", shortname).getSingleResult();
+        return environment;
+    }
+
 
 
 }

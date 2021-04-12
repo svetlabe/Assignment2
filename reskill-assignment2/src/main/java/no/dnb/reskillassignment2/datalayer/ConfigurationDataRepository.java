@@ -15,4 +15,5 @@ public interface ConfigurationDataRepository {
     void insertConfiguration(ConfigurationData configuration);
     boolean updateConfiguration(ConfigurationData configuration);
     boolean deleteConfiguration(long id);
+
 }

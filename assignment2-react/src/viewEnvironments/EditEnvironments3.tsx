@@ -6,7 +6,9 @@ import {Link} from "react-router-dom";
 export default function EditEnvironments3(){
     return(
         <div>
-            <p><Link to={"/dashboard"}> BACK TO DASHBOARD </Link></p>
+            <form action="/dashboard">
+                <input type="submit" value="BACK TO DASHBOARD" />
+            </form>
             <AddEnvironment2/>
             <ListEnvironments/>
 

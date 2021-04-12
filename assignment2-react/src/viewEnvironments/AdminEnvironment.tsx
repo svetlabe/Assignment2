@@ -21,7 +21,14 @@ export default function AdminEnvironment() {
 		let configData = environment.configurationData;
 		return (
 			<React.Fragment>
-				<p><Link to={"/dashboard"}> BACK TO DASHBOARD </Link></p>
+				<form action="/dashboard">
+					<input type="submit" value="BACK TO DASHBOARD" />
+				</form>
+				<form action="/adminenvironments">
+					<input type="submit" value="BACK TO ENVIRONMENTS" />
+				</form>
+				{/*<p><Link to={"/dashboard"}> BACK TO DASHBOARD </Link></p>
+				<p><Link to={"/adminenvironments"}> BACK TO ENVIRONMENTS </Link></p>*/}
 
 				<EnvironmentDetails {...environment} />
 				<AddConfigurationToEnvironment/>
